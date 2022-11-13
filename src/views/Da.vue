@@ -54,7 +54,7 @@
 
             <img src="./../assets/da/businessmen-team-svgrepo-com.svg" alt="">
           </div>
-          <p>GESTION DES AFFAIRES</p>
+          <p>Gestion des Affaires</p>
         </a>
       </div>
 
@@ -66,7 +66,7 @@
             <img src="./../assets/da/bill-svgrepo-com.svg" alt="">
 
           </div>
-          <p>Compptabilite Facturation</p>
+          <p>Comptabilité Facturation</p>
         </a>
       </div>
 
@@ -92,7 +92,7 @@
             <img src="./../assets/da/budget-cost-svgrepo-com.svg" alt="">
 
           </div>
-          <p>Gestion des Frais</p>
+          <p>Gestion de Frais</p>
         </a>
       </div>
 
@@ -119,7 +119,7 @@
             <img src="./../assets/da/box-svgrepo-com.svg" alt="">
 
           </div>
-          <p>Gestion Fournisseur</p>
+          <p>Gestion Fournisseurs</p>
         </a>
       </div>
 
@@ -326,9 +326,7 @@ export default {
 
 <style scoped>
 
-.Intranet{
-  background-color: #f5f5f5 !important;
-}
+
 header {
   box-shadow: 0px 0px 5px rgb(173, 173, 173);
   background-color: rgb(241, 241, 241);
@@ -420,7 +418,7 @@ header {
 .parent {
   display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap:10px;
+    row-gap:30px;
     margin:  auto;
     max-width: 1000px;
     position: relative;
@@ -438,7 +436,7 @@ header {
 .card {
   width: 220px;
   height: 321px;
-  background: #fff;
+  background: #eeeeee;
   border-top-right-radius: 10px;
   overflow: hidden;
   display: flex;
@@ -485,7 +483,7 @@ header {
 }
 
 .card p {
-  font-size: 22px;
+  font-size: 21px;
   text-align: center;
   color: #243064;
   font-weight: bold;
@@ -537,10 +535,7 @@ header {
 
 
 
-#app>div>div.copyright>p {
-  font-weight: bolder;
-  color: red;
-}
+
 
 #app>div>div.logo>ul {
   display: flex;
@@ -564,6 +559,12 @@ header {
 
 }
 
+.copyright p{
+  text-align: center;
+  font-weight: 700;
+  color:rgb(48, 48, 48);
+
+}
 
 
 .spn {
