@@ -1,0 +1,300 @@
+<template>
+  <div class="creationClient">
+
+    <h3>MODIFICATION COMPETENCIES & QUALIFICATIONS</h3>
+
+    <Traitement :msg="msgCompetence" v-if="traitement == true"/>
+
+    <p v-if="echec" :class="{ echec: echec }">
+        {{ error }}
+    </p>
+
+    <div class="formCreation">
+
+      <div>
+        <label for="nom">Nom</label>
+        <input type="text" v-model="competence.nom">
+      </div>
+
+      <div>
+        <label for="nom">Prénom</label>
+        <input type="text" v-model="competence.prenom">
+      </div>
+
+      <div>
+        <label for="adresse">Date de Formation</label>
+        <input type="date" v-model="competence.dateFormation">
+      </div>
+
+      <div>
+        <label for="Appareil et accessoir de levage" >Choisir un métier</label>
+        <select v-model="competence.metier">
+          <option value="Eléctricité">Eléctricité</option>
+          <option value="Levage">Levage</option>
+          <option value="Ascenseur">Ascenseur</option>
+          <option value="Incendie">Incendie</option>
+          <option value="Machine">Machine</option>
+          <option value="Formation">Formation</option>
+          <option value="Technique">Technique</option>
+          <option value="Pression">Pression </option>
+          <option value="Autre">Autre</option>
+          <option value="Environment">Environment</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="Appareil et accessoir de levage" >Choisir Domaine Famille</label>
+        <select v-model="competence.domaineFamille">
+          <option value="Eléctricité">Eléctricité</option>
+          <option value="Levage">Levage</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="Choisir Qualification" >Choisir Qualification</label>
+        <select v-model="competence.qualification">
+          <option value="Eléctricité">Eléctricité</option>
+          <option value="Levage">Levage</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="Choisir les connaissance theorique et pratique">Choisir les connaissance theorique et pratique</label>
+        <select v-model="competence.connaissance">
+          <option value="Abandonner">Abandonner</option>
+          <option value="Adevelopper">Adevelopper</option>
+          <option value="En cœur d acquisition">En cœur d acquisition</option>
+          <option value="À quiser">À quiser</option>
+          <option value="Bonnes">Bonnes</option>
+          <option value="Grand expérience">Grand expérience</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="Module Formation">Module Formation</label>
+        <textarea v-model="competence.moduleFormation">
+        </textarea>
+      </div>
+
+
+      <div>
+        <label for="pays">Télécharger P.J</label>
+        <input type="file" multiple="multiple" placeholder="Télécharger Certificat" ref="file" @change="previewFile">
+      </div>
+
+
+      <div>
+        <input type="submit" value="Modfier" @click="update()">
+      </div>
+
+      <div>
+        <input type="submit" value="Quitter" @click="quitter()">
+      </div>
+
+    </div>
+
+  </div>
+</template>
+
+<script>
+import Service from "../../../../../Service";
+import Traitement from "../../Affaire/Traitement.vue"
+
+export default {
+  data() {
+    return {
+      file : null,
+      filename : null,
+      traitement : null,
+      msgCompetence : null,
+      competence: {
+              nom : null,
+              prenom : null,
+              dateFormation : null,
+              metier : null,
+              domaineFamille : null,
+              qualification : null,
+              connaissance : null,
+              moduleFormation : null
+      },
+      succes: false,
+      echec: false,
+      error : null
+    };
+  },
+
+  components : {
+    Traitement
+  },
+
+  props : {
+        competenceId : String
+  },
+
+  methods: {
+
+   // preciew file
+   previewFile() {
+              this.file = this.$refs.file.files[0];
+   },
+
+   // update Competence
+   update() {
+    console.log(this.competenceId, this.competence, this.file, this.filename);
+        Service.updateCompetence(this.competenceId, this.competence, this.file, this.filename)
+            .then(() => {
+                this.traitement = true;
+                this.msgCompetence = "Veuillez patienter quelques secondes pour modfier voter demande";
+                    setTimeout(() => {
+                        return this.$router.go(this.$router.currentRoute);
+                    }, 10000);
+            })
+            .catch((error) => {
+                this.error = error.message;
+                console.error(`HTTP error: ${error.name} => ${error.message}`);
+                throw "fail request at: GET /refreshtime";
+            });
+   }
+
+
+  },
+
+  created(){
+    Service.selectCompetence(this.competenceId)
+      .then((result) => {
+          this.competence = result.data.competence;
+          this.competence.dateFormation = new Date(result.data.competence.dateFormation).toISOString().slice(0, 10);
+          this.filename = result.data.competence.filename;
+      })
+      .catch((error) => {
+          this.error = error.message;
+          console.error(`HTTP error: ${error.name} => ${error.message}`);
+          throw "fail request at: GET /refreshtime";
+      });
+  }
+
+
+};
+</script>
+
+<style scoped>
+.creationClient {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.creationClient h3 {
+  width: 100%;
+  height: fit-content;
+  padding: 5px;
+  color: white;
+  background-color: #243064;
+  text-align: center;
+
+}
+.succes {
+  background-color: #69cd5b;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  height: fit-content;
+}
+
+.echec {
+  background-color: RED;
+  color: white;
+  padding: 10px;
+  width: 100%;
+  height: fit-content;
+}
+
+.formCreation {
+
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+
+}
+
+.formCreation div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 45%;
+}
+.formCreation div label {
+  margin-left:10px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color :#243064;
+}
+.formCreation div input {
+  height: 40px;
+  margin-left:10px;
+  margin-bottom: 5px;
+  border: 1px solid #243064;
+  padding:5px;
+}.formCreation div input:focus-within {
+  outline: 1px solid #cf1f21 ;
+  border:0;
+
+}
+
+.formCreation div textarea {
+  height: 100px;
+  margin-left:10px;
+  margin-bottom: 5px;
+  border: 1px solid #243064;
+}
+
+.formCreation div select {
+  height: 40px;
+  margin-left:10px;
+}
+
+
+#app > div > div > div.menu-content > div.content > div > div > div > div:nth-child(10) > input[type=submit] {
+    background-color: green;
+    color: white;
+    border: 0;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+#app > div > div > div.menu-content > div.content > div > div > div > div:nth-child(11) > input[type=submit] {
+    background-color: red;
+    color: white;
+    border: 0;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.traitement{
+    height: fit-content;
+    background-color: #f3f3f3;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#app > div > div > div.menu-content > div.content > div {
+  background-color: white;
+}
+
+#app > div > div > div.menu-content > div.content > div > h3 {
+    background-color: #ff0000d4;
+    padding: 15px;
+}
+
+</style>
