@@ -422,6 +422,7 @@ header {
     margin:  auto;
     max-width: 1000px;
     position: relative;
+    justify-items: center;
 
 }
 
@@ -455,10 +456,8 @@ header {
 }
 .card:hover {
   transform: translateY(-5px) scale(1.005) translateZ(0);
-  box-shadow: 0 24px 36px rgba(0,0,0,0.11),
-    0 24px 46px var(--box-shadow-color);
+  box-shadow: rgba(190, 36, 36, 0.24) 0px 7px 8px;
 }
-
 .card:hover .overlay {
   transform: scale(4) translateZ(0);
 }

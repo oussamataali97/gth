@@ -40,25 +40,42 @@
 
 
           <div @click="gestionProduction()" v-if="status != 'inspecteur'">
-            <div>
-              <i class="fa-brands fa-product-hunt"></i>
-              <p>Gestion Production</p>
-            </div>
+            <a href="#" class="card human-resources">
+          <div class="overlay"></div>
+          <div class="circle">
+
+            <img src="./../assets/dp/prod.svg" alt="">
+
+          </div>
+          <p>Gestion Production</p>
+        </a>
           </div>
 
           <div @click="gestionCalendrier()" v-if="status != 'inspecteur'">
-            <div>
-                  <i class="fa-solid fa-calendar-check"></i>
-                  <p>Gestion Programmation et Planification</p>
-            </div>
+
+        <a href="#" class="card human-resources">
+          <div class="overlay"></div>
+          <div class="circle">
+
+            <img src="./../assets/dp/caled.svg" alt="">
+
+          </div>
+          <p>Gestion Programmation et Planification</p>
+        </a>
           </div>
 
 
           <div @click="outilRapports()" v-if="status != 'inspecteur'">
-            <div>
-                  <i class="fa-solid fa-chart-line"></i>
-                  <p>Outil - Rapports</p>
-            </div>
+
+            <a href="#" class="card human-resources">
+          <div class="overlay"></div>
+          <div class="circle">
+
+            <img src="./../assets/dp/analy.svg" alt="">
+
+          </div>
+          <p>Outils Rapports</p>
+        </a>
           </div>
 
     </div>
@@ -297,202 +314,126 @@ color:#cf1f21;
 
 .parent {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:10px;
-  background-color:white;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding:0 80px;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap:30px;
+    margin:  auto;
+    max-width: 1000px;
+    position: relative;
+    justify-items: center;
 
 }
 
 
 /* start div 1 */
-.parent div{
+    .human-resources {
+  --bg-color: #243064;
+  --bg-color-light: #f1f7ff;
+  --text-color-hover: #f1f7ff;
+  --box-shadow-color: #faa2a291;
+}
+.card {
+  width: 220px;
+  height: 321px;
+  background: #eeeeee;
+  border-top-right-radius: 10px;
+  overflow: hidden;
   display: flex;
-  justify-content: start;
-  align-items: center;
-  min-height: 170px;
   flex-direction: column;
-  font-size: 20px;
-  width: 100%;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all .4s ease-in-out;
-color:white;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  box-shadow: 0 14px 26px rgba(0,0,0,0.04);
+  transition: all 0.3s ease-out;
+  text-decoration: none;
+}
+.card:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0,0,0,0.11),
+    0 24px 46px var(--box-shadow-color);
+}
+.card:hover {
+  transform: translateY(-5px) scale(1.005) translateZ(0);
+  box-shadow: 0 24px 36px rgba(0,0,0,0.11),
+    0 24px 46px var(--box-shadow-color);
 }
 
+.card:hover .overlay {
+  transform: scale(6) translateZ(0);
+}
+
+.card:hover .circle {
+  border-color: var(--bg-color-light);
+  background: var(--bg-color);
+}
+
+.card:hover .circle:after {
+  background: var(--bg-color-light);
+}
+
+.card:hover p {
+  color: var(--text-color-hover);
+}
+
+.card:active {
+  transform: scale(1) translateZ(0);
+  box-shadow: 0 15px 24px rgba(0,0,0,0.11),
+    0 15px 24px var(--box-shadow-color);
+}
+
+.card p {
+  font-size: 21px;
+  text-align: center;
+  color: #243064;
+  font-weight: bold;
+  z-index: 1000;
+  transition: color 0.3s ease-out;
+}
+
+.circle {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  margin-top: 20px;
+  transition: all 0.3s ease-out;
+}
+
+
+.circle img{
+    z-index: 20000;
+    width: 100px;
+  height: 100px; position: absolute;
+  transform: translateZ(0);
+
+
+
+}
+
+
+.overlay {
+  width: 118px;
+  position: absolute;
+  height: 118px;
+  border-radius: 50%;
+  background: var(--bg-color);
+  top: 59px;
+  left: 50px;
+  z-index: 0;
+  transition: transform 0.3s ease-out;
+}
 
 
 /* start div 1 */
-.parent div:nth-child(1) {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  cursor: pointer;
-}
 
-.parent div:nth-child(1) div {
-  height: 100%;
-  width: 100%;
-  background-image: url("../assets/prodctionAvancee.jpg");
-  background-size: cover;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.parent div:nth-child(1) div::before {
-  content: "";
-  height: 100%;
-  width: 100%;
-  background-color: #24306466;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-.parent div:nth-child(1):hover div {
-  transform: scaleY(1.1);
-  transform: scaleX(1.1);
-  transition: 0.5s;
-}
-
-
-.parent div:nth-child(1) div svg {
-  color: white;
-  font-size: 50px;
-  z-index: 10;
-}
-
-.parent div:nth-child(1) div p {
-    text-align: center;
-    color: white;
-    font-size: 18px;
-    z-index: 10;
-    /* font-weight: bold; */
-    font-weight: bold;
-}
-
-/* End div 1 */
-
-
-/* start div 2 */
-.parent div:nth-child(2) {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.parent div:nth-child(2) div {
-  height: 100%;
-  width: 100%;
-  background-image: url("../assets/gestioncalendar.jpg");
-  background-size: cover;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.parent div:nth-child(2) div::before {
-  content: "";
-  height: 100%;
-  width: 100%;
-  background-color: #24642866;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-.parent div:nth-child(2):hover div {
-  transform: scaleY(1.1);
-  transform: scaleX(1.1);
-  transition: 0.5s;
-}
-
-
-.parent div:nth-child(2) div svg {
-  color: white;
-  font-size: 50px;
-  z-index: 10;
-}
-
-.parent div:nth-child(2) div p {
-    text-align: center;
-    color: white;
-    font-size: 18px;
-    z-index: 10;
-    /* font-weight: bold; */
-    font-weight: bold;
-}
-
-/* End div 2 */
-
-
-/* start div 3 */
-.parent div:nth-child(3) {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  cursor: pointer;
-}
-
-.parent div:nth-child(3) div {
-  height: 100%;
-  width: 100%;
-  background-image: url("../assets/etalonnage.jpg");
-  background-size: cover;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.parent div:nth-child(3) div::before {
-  content: "";
-  height: 100%;
-  width: 100%;
-  background-color: #24306466;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-.parent div:nth-child(3):hover div {
-  transform: scaleY(1.1);
-  transform: scaleX(1.1);
-  transition: 0.5s;
-}
-
-
-.parent div:nth-child(3) div svg {
-  color: white;
-  font-size: 50px;
-  z-index: 10;
-}
-
-.parent div:nth-child(3) div p {
-    text-align: center;
-    color: white;
-    font-size: 18px;
-    z-index: 10;
-    /* font-weight: bold; */
-    font-weight: bold;
-}
 
 /* End div 3 */
 
-#app > div > div.copyright > p {
-    font-weight: bolder;
-    color: red;
-}
 
 #app > div > div.logo > ul {
   display: flex;
@@ -515,7 +456,13 @@ color:white;
 
 }
 
+.copyright p{
+  text-align: center;
+  font-weight: 700;
+  color:rgb(48, 48, 48);
+  margin-top: 50px;
 
+}
 
 .spn{
    color:#243064;

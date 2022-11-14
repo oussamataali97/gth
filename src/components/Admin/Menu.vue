@@ -102,7 +102,7 @@
     <li v-if="flagTechniqueMateriel == true">
 
       <ul>
-        <li><i class="fa-solid fa-user-group"></i></li>
+        <li><i class="fa-solid fa-file-lines"></i></li>
         <li>FICHE TECHNIQUE MATÉRIEL</li>
       </ul>
 
@@ -127,7 +127,7 @@
 
     <li v-if="flagSalarie == true">
       <ul>
-        <li><i class="fa-solid fa-user-group"></i></li>
+        <li><i class="fa-solid fa-person-circle-xmark"></i></li>
         <li>LES CONGÉS & LES ABSENCES</li>
       </ul>
       <ul class="hoverlist">
@@ -138,7 +138,7 @@
 
     <li v-if="flagSalarie == true">
       <ul>
-        <li><i class="fa-solid fa-user-group"></i></li>
+        <li><i class="fa-solid fa-person-circle-plus"></i></li>
         <li>COMPETENCIES & QUALIFICATIONS</li>
       </ul>
       <ul class="hoverlist">
@@ -149,7 +149,7 @@
 
     <li v-if="flagSalarie == true">
       <ul>
-        <li><i class="fa-solid fa-user-group"></i></li>
+        <li><i class="fa-solid fa-handshake"></i></li>
         <li>LES AGRÉMENTS</li>
       </ul>
       <ul class="hoverlist">
