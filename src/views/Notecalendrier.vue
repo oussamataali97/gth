@@ -34,7 +34,7 @@
             </div>
 
           </div>
-
+          <div class="calendarfull">
           <div class="listdays">
             <div>Lundi</div>
             <div>Mardi</div>
@@ -151,6 +151,7 @@
             </div>
             <!-- End liste days with info -->
           </div>
+        </div>
 
           <!-- End calendrier Simple -->
 
@@ -917,7 +918,7 @@ export default {
   margin-top: 10px;
 }
 
-#app>div>div>div.menu-content>div.content>div.info>div {
+.info>div {
   height: 40px;
   margin-top: 20px;
   display: flex;
@@ -925,8 +926,8 @@ export default {
   margin-bottom: 20px;
   justify-content: center;
   align-items: center;
-
 }
+
 
 #app>div>div>div.menu-content>div.content>div.info>div>button {
   margin-left: 10px;
@@ -953,7 +954,7 @@ padding:10px;
   border: 1px solid #bae8d2;
 }
 
-#app>div>div>div.menu-content>div.content>div.listdays {
+.listdays {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
 
@@ -967,7 +968,7 @@ padding:10px;
 
 }
 
-#app>div>div>div.menu-content>div.content>div.listdays>div {
+.listdays>div {
   background-color: #243064;
   color: rgb(255, 255, 255);
   display: flex;
@@ -981,7 +982,7 @@ padding:10px;
 
 }
 
-#app>div>div>div.menu-content>div.content>div.listdays>div:nth-child(6) {
+.listdays>div:nth-child(6) {
   background-color: #cf1f21;
   color: white;
   display: flex;
@@ -994,7 +995,7 @@ padding:10px;
 
 }
 
-#app>div>div>div.menu-content>div.content>div.listdays>div:nth-child(7) {
+.listdays>div:nth-child(7) {
   background-color: #cf1f21;
   color: white;
   display: flex;
@@ -1007,7 +1008,7 @@ padding:10px;
 
 }
 
-#app>div>div>div.menu-content>div.content>div.list {
+.list {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: 1fr;
@@ -1019,7 +1020,7 @@ padding:10px;
   border: 0;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div.item {
+.list>div.item {
   height: 100%;
   width: 100%;
   padding: 0px;
@@ -1031,7 +1032,7 @@ padding:10px;
   align-items: center;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div.item>div.info {
+.list>div.item>div.info {
   height: 100%;
   width: 100%;
   padding: 0;
@@ -1046,7 +1047,7 @@ padding:10px;
   align-items: center;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div.item>div.info>div.dayJour {
+.list>div.item>div.info>div.dayJour {
   width: 100%;
   height: auto;
   display: flex;
@@ -1055,39 +1056,39 @@ padding:10px;
   align-items: flex-start;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div.item>div>div.dayJour>p {
+.list>div.item>div>div.dayJour>p {
   margin-left: 5px;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div.item>div.info>div.infoMission {
+.list>div.item>div.info>div.infoMission {
   width: 100%;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div.item>div.info>div.infoMission>div {
+.list>div.item>div.info>div.infoMission>div {
   padding-left: 10px;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div.item>div.info>div.infoMission>div>div.mission>p {
+.list>div.item>div.info>div.infoMission>div>div.mission>p {
   color: blue;
   font-size: larger;
   font-weight: 700;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div.item>div.info>div.infoMission>div>div.mission {
+.list>div.item>div.info>div.infoMission>div>div.mission {
   display: flex;
   flex-direction: row;
   width: 100%;
   flex-wrap: nowrap;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div.item>div.info>div.infoMission>div>div.client {
+.list>div.item>div.info>div.infoMission>div>div.client {
   display: flex;
   flex-direction: column;
   width: 100%;
   flex-wrap: nowrap;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div.item>div.info>div.infoMission>div>div.client>li {
+.list>div.item>div.info>div.infoMission>div>div.client>li {
   list-style: none;
   margin-top: 4px;
   margin-bottom: 4px;
@@ -1097,11 +1098,11 @@ padding:10px;
   font-weight: 400;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div.item>div.info>div.infoMission>div>div.client>li>svg {
+.list>div.item>div.info>div.infoMission>div>div.client>li>svg {
   font-size: larger;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div.item>div.info>div.infoMission>div>div.horaire {
+.list>div.item>div.info>div.infoMission>div>div.horaire {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -1109,11 +1110,11 @@ padding:10px;
   width: 100%;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div.item>div.info>div.infoMission>div>div.horaire p {
+.list>div.item>div.info>div.infoMission>div>div.horaire p {
   color: red;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div.item>div.info>div.infoMission>div>div.verfication {
+.list>div.item>div.info>div.infoMission>div>div.verfication {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1121,69 +1122,69 @@ padding:10px;
   width: 100%;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div.item>div.info>div.infoMission>div>div.verfication>p {
+.list>div.item>div.info>div.infoMission>div>div.verfication>p {
   margin-top: 5px;
   margin-bottom: 5px;
   color: rgb(0 0 0 / 61%);
   font-size: larger;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div.item>div.info>div.infoMission>div>div.verfication>p:nth-child(2) {
+.list>div.item>div.info>div.infoMission>div>div.verfication>p:nth-child(2) {
   color: green;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div>div>div.infoInspecteur>div>div {
+.list>div>div>div.infoInspecteur>div>div {
   text-align: center;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div>div>div.infoInspecteur>div>div>p {
+.list>div>div>div.infoInspecteur>div>div>p {
   cursor: pointer;
   color: white;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div>div>div.infoInspecteur>div>div:nth-child(1)>p {
+.list>div>div>div.infoInspecteur>div>div:nth-child(1)>p {
   background-color: red;
   padding: 8px;
   border-radius: 6px;
   font-size: unset;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div>div>div.infoInspecteur>div>div:nth-child(2)>p {
+.list>div>div>div.infoInspecteur>div>div:nth-child(2)>p {
   background-color: green;
   padding: 8px;
   border-radius: 6px;
   font-size: unset;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div>div>div.infoInspecteur>div>div:nth-child(3)>p {
+.list>div>div>div.infoInspecteur>div>div:nth-child(3)>p {
   background-color: yellow;
   padding: 8px;
   border-radius: 6px;
   font-size: unset;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div>div>div.infoInspecteur>div>div:nth-child(4)>p {
+.list>div>div>div.infoInspecteur>div>div:nth-child(4)>p {
   background-color: blue;
   padding: 8px;
   border-radius: 6px;
   font-size: unset;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div>div>div.infoInspecteur>div>div:nth-child(5)>p {
+.list>div>div>div.infoInspecteur>div>div:nth-child(5)>p {
   background-color: rgb(255, 0, 149);
   padding: 8px;
   border-radius: 6px;
   font-size: unset;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div>div>div.infoInspecteur>div>div:nth-child(6)>p {
+.list>div>div>div.infoInspecteur>div>div:nth-child(6)>p {
   background-color: rgb(51, 255, 0);
   padding: 8px;
   border-radius: 6px;
   font-size: unset;
 }
 
-#app>div>div>div.menu-content>div.content>div.list>div>div>div.infoInspecteur>div>div:nth-child(7)>p {
+.list>div>div>div.infoInspecteur>div>div:nth-child(7)>p {
   background-color: rgb(0, 255, 234);
   padding: 8px;
   border-radius: 6px;

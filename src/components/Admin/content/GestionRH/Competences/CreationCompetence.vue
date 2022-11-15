@@ -296,6 +296,14 @@ export default {
   font-weight: 700;
   color :#494949;
 }
+
+.formCreation div textarea {
+  margin-left:10px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  color :#494949;
+}
 .formCreation div input {
   height: 40px;
   margin-left:10px;

@@ -385,9 +385,6 @@ header {
   height: 100px;
   position: absolute;
   transform: translateZ(0);
-
-
-
 }
 
 
@@ -465,7 +462,7 @@ header {
   text-align: center;
   font-weight: 700;
   color:rgb(48, 48, 48);
-  margin-top: 50px;
+  padding:40px 0;
 
 }
 </style>

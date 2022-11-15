@@ -12,7 +12,7 @@
 
         <div class="content">
 
-          <h3>CHAT GTHCONSULT</h3>
+
 
           <!-- start chat -->
           <div class="chat">
@@ -24,16 +24,30 @@
               </div>
               <div class="back">
                 <ul v-for="item in filterAdmins" :key="item._id">
-                  <li @click="chatContact(item._id)"><i v-if="item.connected == true" class="fa-solid fa-user"
-                      style="color :green;"></i><i v-if="item.connected == false" class="fa-solid fa-user"
-                      style="color :red;"></i>{{ item.nom + " " + item.prenom }} </li>
+                  <li @click="chatContact(item._id)" class="user-auth">
+                    <div class="pictures">
+                      <img src="./../assets/userr.svg" class="onlinee" v-if="item.connected == true" alt="" >
+                      <img src="./../assets/userr.svg" class="oflinee" v-if="item.connected == false" alt="" style="filter: saturate(0);">
+
+                       <p>{{ item.nom + " " + item.prenom }}</p>
+                    </div>
+
+
+                      <div class="online" v-if="item.connected == true">
+
+                      </div>
+                      <div class="offline" v-if="item.connected == false">
+
+                      </div>
+                      </li>
+
                 </ul>
               </div>
             </div>
 
             <div class="content-message">
-              <img src="./../assets/istockphoto-1201667381-1024x1024.jpg" style="object-fit: cover;width: 100%; height: 100%;opacity:0.1"
-                alt="">
+              <h3>CHAT GTHCONSULT</h3>
+
               <div class="content">
                 <div v-for="(item, i) in filterChatContent" :key="i">
                   <ul v-for="(element, j) in item.content" :key="j">
@@ -232,8 +246,9 @@ export default {
   width: 30%;
   height: 100%;
   display: flex;
+
   flex-direction: column;
-  background-color: #f7f7f7;
+  background-color: white;
 
 
 }
@@ -254,33 +269,24 @@ color:rgb(66, 66, 66);
   height: 100%;
 }
 
-#app>div>div>div.menu-content>div.content>div.chat>div.users>div.back>ul>li {
-  color: #ddd;
-  padding: 10px;
-  font-size: 18px;
-  font-weight: 400;
-  cursor: pointer;
-}
 
-#app>div>div>div.menu-content>div.content>div.chat>div.users>div.back>ul>li:hover {
-  color: white;
-  padding: 10px;
-  font-size: 22px;
-  font-weight: 400;
-  cursor: pointer;
-  transition: 0.3s;
-}
+
+
 
 #app>div>div>div.menu-content>div.content>div.chat>div.content-message {
   width: 70%;
   z-index: 10;
   display: flex;
+  height: calc(100vh - 74px);
   flex-direction: column;
   justify-content: flex-end;
 }
 
 #app>div>div>div.menu-content>div.content>div.chat>div.content-message .content {
   overflow-y: auto;
+  background-color: rgb(247, 247, 247);
+  z-index: 2000;
+  height: 100%;
 }
 
 #app>div>div>div.menu-content>div.content>div.chat>div.content-message .message {
@@ -290,7 +296,7 @@ color:rgb(66, 66, 66);
   flex-direction: row;
   padding: 16px;
   align-items: center;
-  background-color: #dfdfdf;
+  background-color: #e7e7e7;
   text-align: center;
   position: relative;
   justify-content: flex-end;
@@ -363,6 +369,61 @@ color:rgb(66, 66, 66);
   color: white;
 }
 
+.user-auth{
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  justify-content: space-between;
+  color:rgb(43, 43, 43);
+  font-size: 20px;
+  text-transform: capitalize;
+
+}
+
+
+
+.pictures{
+  display: flex;
+}
+
+.back ul li {
+border-bottom: 1px solid rgb(190, 190, 190);
+  padding:5px 10px;
+
+    width: 100%;
+    cursor: pointer;
+    margin: 0 auto;
+    transition: 0.3s ease-in-out;
+}
+
+.back ul li:hover {
+background-color: #243064;
+color:white;
+}
+
+.back ul:nth-child(odd) {
+background-color: rgb(245, 245, 245);
+}
+
+.user-auth img{
+  margin-right:20px;
+  width: 50px;
+}
+
+.offline{
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgb(212, 59, 59);
+}
+
+.online{
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: rgb(53, 196, 53);
+}
+
 
 #app>div>div>div.menu-content>div.content>div.chat>div.content-message>div.message>input[type=button]:nth-child(3) {
   background-color: #3085d6;
@@ -412,12 +473,14 @@ h3 {
   width: 100%;
 
 
-  margin: 0;
+
   color: white;
   background: linear-gradient(346deg, rgba(207, 31, 33, 1) 0%, rgba(24, 86, 161, 1) 100%);
   text-align: center;
   text-align: center;
   padding: 10px;
+
   font-size: 25px;
+  border-radius: 20px;
 }
 </style>

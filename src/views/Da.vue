@@ -562,6 +562,7 @@ header {
   text-align: center;
   font-weight: 700;
   color:rgb(48, 48, 48);
+  padding:40px 0;
 
 }
 

@@ -138,7 +138,7 @@
 
     <li v-if="flagSalarie == true">
       <ul>
-        <li><i class="fa-solid fa-person-circle-plus"></i></li>
+        <li><i class="fa-solid fa-person-circle-check"></i></li>
         <li>COMPETENCIES & QUALIFICATIONS</li>
       </ul>
       <ul class="hoverlist">

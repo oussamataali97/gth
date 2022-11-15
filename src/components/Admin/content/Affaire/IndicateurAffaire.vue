@@ -1,229 +1,264 @@
 <template>
   <div class="indicateur">
-      <div class="titre">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <h1><span>LES INDICATEURS</span> <span>DES AFFAIRES</span></h1>
-      </div>
-      <div class="text">
-        <h2><i class="fa-solid fa-arrow-right"></i>Gestion administrative des l’organisation de gestions</h2>
-        <span>
-          Administrative des lorganise GTHCONSULT, concerne l’ensemble des tâches et des formalités
-          administratives pour se confirme au respect des procédures de qualité, cette gestion administrative
-          désigne l’ensemble des actions à mettre en œuvre pour permettre l’entreprise d’atteindre objectives
-          stratégies.
-        </span>
-      </div>
+    <div class="titre">
+      <h2>Gestion administrative des l’organisation de gestions</h2>
+    </div>
+    <div class="text">
 
-      <div class="filter">
-            <label for="nom">Rechercher par des années: </label>
-            <select v-model="annee" @change="indicateur">
-                <option v-for="item in years" :key="item" :value="item" > {{ item }} </option>
-            </select>
-      </div>
+      <span><i class="fa-regular fa-lightbulb"></i>Note :</span>
+      Administrative des lorganise GTHCONSULT, concerne l’ensemble des tâches et des formalités
+      administratives pour se confirme au respect des procédures de qualité, cette gestion administrative
+      désigne l’ensemble des actions à mettre en œuvre pour permettre l’entreprise d’atteindre objectives
+      stratégies.
 
-      <div class="redirect">
-          <i class="fa-solid fa-circle-plus"></i>
-      </div>
+    </div>
 
-      <div class="statstique">
-<!-- janvier, fevrier, mars, avril, mai, juin, juillet, aout, septembre, october, novembre, decembre -->
-        <div>
-          <p>Janvier</p>
-          <p>Total d'offre: {{ mois.janvier == null  ? 0 : mois.janvier.length }} </p>
-          <p>Total Prix : {{ prix.prixJanvier }} MAD</p>
-          <p>Liste des Offre</p>
+    <div class="filter">
+      <label for="nom"> <i class="fa-solid fa-magnifying-glass" style="font-size: 20px;"></i> Rechercher par des années:
+      </label>
+      <select v-model="annee" @change="indicateur">
+        <option v-for="item in years" :key="item" :value="item"> {{ item }} </option>
+      </select>
+    </div>
+
+    <div class="statstique">
+      <!-- janvier, fevrier, mars, avril, mai, juin, juillet, aout, septembre, october, novembre, decembre -->
+      <div>
+        <p>Janvier</p>
+        <p><i class="fa-solid fa-rectangle-list"></i> <span>Total d'offre:</span> {{ mois.janvier == null ? 0 : mois.janvier.length }} </p>
+        <p><i class="fa-solid fa-sack-dollar"></i> <span>Total Prix :</span> {{ prix.prixJanvier }} MAD</p>
+        <fieldset>
+          <legend><i class="fa-solid fa-list-check"></i> Liste des Offre</legend>
+
           <ul v-for="(element, a) in mois.janvier" :key="a">
-            <li> {{ element.numeroAffaire }}</li>
+            <li><i class="fa-solid fa-check"></i> {{ element.numeroAffaire }}</li>
           </ul>
-        </div>
-
-        <div>
-          <p>Février</p>
-          <p>Total d'offre: {{ mois.fevrier == null  ? 0 : mois.fevrier.length  }} </p>
-          <p>Total Prix : {{ prix.prixFevrier }} MAD</p>
-          <p>Liste des Offre</p>
-          <ul v-for="(element, b) in mois.fevrier" :key="b">
-            <li> {{ element.numeroAffaire }}</li>
-          </ul>
-        </div>
-
-        <div>
-          <p>Mars</p>
-          <p>Total d'offre: {{ mois.mars == null  ? 0 : mois.mars.length  }} </p>
-          <p>Total Prix : {{ prix.prixMars }} MAD</p>
-          <p>Liste des Offre</p>
-          <ul v-for="(element, c) in mois.mars" :key="c">
-            <li> {{ element.numeroAffaire }}</li>
-          </ul>
-        </div>
-
-        <div>
-          <p>Avril</p>
-          <p>Total d'offre: {{ mois.avril == null  ? 0 : mois.avril.length  }} </p>
-          <p>Total Prix : {{ prix.prixAvril }} MAD</p>
-          <p>Liste des Offre</p>
-          <ul v-for="(element, d) in mois.avril" :key="d">
-            <li> {{ element.numeroAffaire }}</li>
-          </ul>
-        </div>
-
-        <div>
-          <p>Mai</p>
-          <p>Total d'offre: {{ mois.mai == null  ? 0 : mois.mai.length  }} </p>
-          <p>Total Prix : {{ prix.prixMai }} MAD</p>
-          <p>Liste des Offre</p>
-          <ul v-for="(element, c) in mois.mai" :key="c">
-            <li> {{ element.numeroAffaire }}</li>
-          </ul>
-        </div>
-
-        <div>
-          <p>Juin</p>
-          <p>Total d'offre: {{ mois.juin == null  ? 0 : mois.juin.length  }} </p>
-          <p>Total Prix : {{ prix.prixJuin }} MAD</p>
-          <p>Liste des Offre</p>
-          <ul v-for="(element, d) in mois.juin" :key="d">
-            <li> {{ element.numeroAffaire }}</li>
-          </ul>
-        </div>
-
-        <div>
-          <p>Juillet</p>
-          <p>Total d'offre: {{ mois.juillet == null  ? 0 : mois.juillet.length }} </p>
-          <p>Total Prix : {{ prix.prixJuillet }} MAD</p>
-          <p>Liste des Offre</p>
-          <ul v-for="(element, e) in mois.juillet" :key="e">
-            <li> {{ element.numeroAffaire }}</li>
-          </ul>
-        </div>
-
-        <div>
-          <p>Août</p>
-          <p>Total d'offre: {{ mois.aout == null  ? 0 : mois.aout.length  }} </p>
-          <p>Total Prix : {{ prix.prixAout }} MAD</p>
-          <p>Liste des Offre</p>
-          <ul v-for="(element, f) in mois.aout" :key="f">
-            <li> {{ element.numeroAffaire }}</li>
-          </ul>
-        </div>
-
-        <div>
-          <p>Septembre</p>
-          <p>Total d'offre: {{ mois.septembre == null  ? 0 : mois.septembre.length }} </p>
-          <p>Total Prix : {{ prix.prixSeptembre }} MAD</p>
-          <p>Liste des Offre</p>
-          <ul v-for="(element, j) in mois.septembre" :key="j">
-            <li> {{ element.numeroAffaire }}</li>
-          </ul>
-        </div>
-
-        <div>
-          <p>Octobre</p>
-          <p>Total d'offre: {{ mois.octobre == null  ? 0 : mois.octobre.length }} </p>
-          <p>Total Prix : {{ prix.prixOctober }} MAD</p>
-          <p>Liste des Offre</p>
-          <ul v-for="(element, k) in mois.octobre" :key="k">
-            <li> {{ element.numeroAffaire }}</li>
-          </ul>
-        </div>
-
-        <div>
-          <p>Novembre</p>
-          <p>Total d'offre: {{ mois.novembre == null  ? 0 : mois.novembre.length }} </p>
-          <p>Total Prix : {{ prix.prixNovembre }} MAD</p>
-          <p>Liste des Offre</p>
-          <ul v-for="(element, l) in mois.novembre" :key="l">
-            <li> {{ element.numeroAffaire }}</li>
-          </ul>
-        </div>
-
-        <div>
-          <p>Décembre</p>
-          <p>Total d'offre: {{ mois.decembre == null  ? 0 : mois.decembre.length }} </p>
-          <p>Total Prix : {{ prix.prixDecembre }} MAD</p>
-          <p>Liste des Offre</p>
-          <ul v-for="(element, m) in mois.decembre" :key="m">
-            <li> {{ element.numeroAffaire }}</li>
-          </ul>
-        </div>
-
+        </fieldset>
       </div>
+
+      <div>
+        <p>Février</p>
+        <p><i class="fa-solid fa-rectangle-list"></i> <span>Total d'offre:</span> {{ mois.fevrier == null ? 0 : mois.fevrier.length }} </p>
+        <p><i class="fa-solid fa-sack-dollar"></i> <span>Total Prix :</span> {{ prix.prixFevrier }} MAD</p>
+        <fieldset>
+          <legend><i class="fa-solid fa-list-check"></i> Liste des Offre</legend>
+
+          <ul v-for="(element, b) in mois.fevrier" :key="b">
+            <li><i class="fa-solid fa-check"></i> {{ element.numeroAffaire }}</li>
+          </ul>
+        </fieldset>
+      </div>
+
+      <div>
+        <p>Mars</p>
+        <p><i class="fa-solid fa-rectangle-list"></i> <span>Total d'offre:</span> {{ mois.mars == null ? 0 : mois.mars.length }} </p>
+        <p><i class="fa-solid fa-sack-dollar"></i> <span>Total Prix :</span> {{ prix.prixMars }} MAD</p>
+        <fieldset>
+          <legend><i class="fa-solid fa-list-check"></i> Liste des Offre</legend>
+
+          <ul v-for="(element, c) in mois.mars" :key="c">
+            <li><i class="fa-solid fa-check"></i> {{ element.numeroAffaire }}</li>
+
+
+          </ul>
+        </fieldset>
+      </div>
+
+      <div>
+        <p>Avril</p>
+        <p><i class="fa-solid fa-rectangle-list"></i> <span>Total d'offre:</span> {{ mois.avril == null ? 0 : mois.avril.length }} </p>
+        <p><i class="fa-solid fa-sack-dollar"></i> <span>Total Prix :</span> {{ prix.prixAvril }} MAD</p>
+        <fieldset>
+          <legend><i class="fa-solid fa-list-check"></i> Liste des Offre</legend>
+
+          <ul v-for="(element, d) in mois.avril" :key="d">
+            <li><i class="fa-solid fa-check"></i> {{ element.numeroAffaire }}</li>
+          </ul>
+        </fieldset>
+      </div>
+
+      <div>
+        <p>Mai</p>
+        <p><i class="fa-solid fa-rectangle-list"></i> <span>Total d'offre:</span> {{ mois.mai == null ? 0 : mois.mai.length }} </p>
+        <p><i class="fa-solid fa-sack-dollar"></i> <span>Total Prix :</span> {{ prix.prixMai }} MAD</p>
+        <fieldset>
+          <legend><i class="fa-solid fa-list-check"></i> Liste des Offre</legend>
+
+          <ul v-for="(element, c) in mois.mai" :key="c">
+            <li><i class="fa-solid fa-check"></i> {{ element.numeroAffaire }}</li>
+          </ul>
+        </fieldset>
+      </div>
+
+      <div>
+        <p>Juin</p>
+        <p><i class="fa-solid fa-rectangle-list"></i> <span>Total d'offre:</span> {{ mois.juin == null ? 0 : mois.juin.length }} </p>
+        <p><i class="fa-solid fa-sack-dollar"></i> <span>Total Prix :</span> {{ prix.prixJuin }} MAD</p>
+        <fieldset>
+          <legend><i class="fa-solid fa-list-check"></i> Liste des Offre</legend>
+
+          <ul v-for="(element, d) in mois.juin" :key="d">
+            <li><i class="fa-solid fa-check"></i> {{ element.numeroAffaire }}</li>
+          </ul>
+        </fieldset>
+      </div>
+
+      <div>
+        <p>Juillet</p>
+        <p><i class="fa-solid fa-rectangle-list"></i> <span>Total d'offre:</span> {{ mois.juillet == null ? 0 : mois.juillet.length }} </p>
+        <p><i class="fa-solid fa-sack-dollar"></i> <span>Total Prix :</span> {{ prix.prixJuillet }} MAD</p>
+        <fieldset>
+          <legend><i class="fa-solid fa-list-check"></i> Liste des Offre</legend>
+
+          <ul v-for="(element, e) in mois.juillet" :key="e">
+            <li><i class="fa-solid fa-check"></i> {{ element.numeroAffaire }}</li>
+
+          </ul>
+        </fieldset>
+      </div>
+
+      <div>
+        <p>Août</p>
+        <p><i class="fa-solid fa-rectangle-list"></i> <span>Total d'offre:</span> {{ mois.aout == null ? 0 : mois.aout.length }} </p>
+        <p><i class="fa-solid fa-sack-dollar"></i> <span>Total Prix :</span> {{ prix.prixAout }} MAD</p>
+        <fieldset>
+          <legend><i class="fa-solid fa-list-check"></i> Liste des Offre</legend>
+
+          <ul v-for="(element, f) in mois.aout" :key="f">
+            <li><i class="fa-solid fa-check"></i> {{ element.numeroAffaire }}</li>
+          </ul>
+        </fieldset>
+      </div>
+
+      <div>
+        <p>Septembre</p>
+        <p><i class="fa-solid fa-rectangle-list"></i> <span>Total d'offre:</span> {{ mois.septembre == null ? 0 : mois.septembre.length }} </p>
+        <p><i class="fa-solid fa-sack-dollar"></i> <span>Total Prix :</span> {{ prix.prixSeptembre }} MAD</p>
+        <fieldset>
+          <legend><i class="fa-solid fa-list-check"></i> Liste des Offre</legend>
+
+          <ul v-for="(element, j) in mois.septembre" :key="j">
+            <li><i class="fa-solid fa-check"></i> {{ element.numeroAffaire }}</li>
+          </ul>
+        </fieldset>
+      </div>
+
+      <div>
+        <p>Octobre</p>
+        <p><i class="fa-solid fa-rectangle-list"></i> <span>Total d'offre:</span> {{ mois.octobre == null ? 0 : mois.octobre.length }} </p>
+        <p><i class="fa-solid fa-sack-dollar"></i> <span>Total Prix :</span> {{ prix.prixOctober }} MAD</p>
+        <fieldset>
+          <legend><i class="fa-solid fa-list-check"></i> Liste des Offre</legend>
+
+          <ul v-for="(element, k) in mois.octobre" :key="k">
+            <li><i class="fa-solid fa-check"></i> {{ element.numeroAffaire }}</li>
+          </ul>
+        </fieldset>
+      </div>
+
+      <div>
+        <p>Novembre</p>
+        <p><i class="fa-solid fa-rectangle-list"></i> <span>Total d'offre:</span> {{ mois.novembre == null ? 0 : mois.novembre.length }} </p>
+        <p><i class="fa-solid fa-sack-dollar"></i> <span>Total Prix :</span> {{ prix.prixNovembre }} MAD</p>
+        <fieldset>
+          <legend><i class="fa-solid fa-list-check"></i> Liste des Offre</legend>
+
+          <ul v-for="(element, l) in mois.novembre" :key="l">
+            <li><i class="fa-solid fa-check"></i> {{ element.numeroAffaire }}</li>
+          </ul>
+        </fieldset>
+      </div>
+
+      <div>
+        <p>Décembre</p>
+        <p><i class="fa-solid fa-rectangle-list"></i> <span>Total d'offre:</span> {{ mois.decembre == null ? 0 : mois.decembre.length }} </p>
+        <p><i class="fa-solid fa-sack-dollar"></i> <span>Total Prix :</span> {{ prix.prixDecembre }} MAD</p>
+        <fieldset>
+          <legend><i class="fa-solid fa-list-check"></i> Liste des Offre</legend>
+
+          <ul v-for="(element, m) in mois.decembre" :key="m">
+            <li><i class="fa-solid fa-check"></i> {{ element.numeroAffaire }}</li>
+          </ul>
+        </fieldset>
+      </div>
+
+    </div>
   </div>
 </template>
 
 <script>
 import Service from "../../../../Service";
 export default {
-  name : "indicateur",
+  name: "indicateur",
   data() {
     return {
-        mounths : ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
-        years : [],
-        annee : null,
-        mois : {
-          janvier : null,
-          fevrier : null,
-          mars : null,
-          avril : null,
-          mai : null,
-          juin : null,
-          juillet : null,
-          aout : null,
-          septembre : null,
-          octobre : null,
-          novembre : null,
-          decembre : null
-        },
+      mounths: ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"],
+      years: [],
+      annee: null,
+      mois: {
+        janvier: null,
+        fevrier: null,
+        mars: null,
+        avril: null,
+        mai: null,
+        juin: null,
+        juillet: null,
+        aout: null,
+        septembre: null,
+        octobre: null,
+        novembre: null,
+        decembre: null
+      },
 
-        prix : {
-           prixJanvier : null,
-           prixFevrier : null,
-           prixMars : null,
-           prixAvril : null,
-           prixMai : null,
-           prixJuin : null,
-           prixJuillet : null,
-           prixAout : null,
-           prixSeptembre : null,
-           prixOctober : null,
-           prixNovembre : null,
-           prixDecembre : null
-        }
+      prix: {
+        prixJanvier: null,
+        prixFevrier: null,
+        prixMars: null,
+        prixAvril: null,
+        prixMai: null,
+        prixJuin: null,
+        prixJuillet: null,
+        prixAout: null,
+        prixSeptembre: null,
+        prixOctober: null,
+        prixNovembre: null,
+        prixDecembre: null
+      }
     }
   },
 
-  methods : {
+  methods: {
 
-      indicateur() {
-        Service.IndicteurAffaire(this.annee)
-          .then((result) => {
-            this.mois = result.data;
-            this.prix = result.data;
-          })
-          .catch((error) => {
-              console.log(error.message)
-          });
-      }
+    indicateur() {
+      Service.IndicteurAffaire(this.annee)
+        .then((result) => {
+          this.mois = result.data;
+          this.prix = result.data;
+        })
+        .catch((error) => {
+          console.log(error.message)
+        });
+    }
   },
 
   created() {
 
-      // get year anee current
-      const today = new Date();
-      this.selectAnnee = today.getUTCFullYear();
+    // get year anee current
+    const today = new Date();
+    this.selectAnnee = today.getUTCFullYear();
 
-      for(let i = this.selectAnnee; i >= 1970 ; i--) {
-            this.years.push(i);
-      }
+    for (let i = this.selectAnnee; i >= 1970; i--) {
+      this.years.push(i);
+    }
 
-      // get info Indicateur by current
-      Service.IndicteurAffaire(this.selectAnnee)
+    // get info Indicateur by current
+    Service.IndicteurAffaire(this.selectAnnee)
       .then((result) => {
-            this.mois = result.data;
-            this.prix = result.data;
+        this.mois = result.data;
+        this.prix = result.data;
       })
       .catch((error) => {
-          console.log(error.message)
+        console.log(error.message)
       });
   }
 
@@ -231,97 +266,55 @@ export default {
 </script>
 
 <style scoped>
-.indicateur {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+.indicateur>.text {
+  background-color: #fff27a;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
 }
 
-.indicateur > .titre {
+.text span {
+  font-weight: bold;
+}
+
+.titre h2 {
   width: 100%;
-  background-color: white;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 0;
+  color: white;
+  background: linear-gradient(346deg, rgba(207, 31, 33, 1) 0%, rgba(24, 86, 161, 1) 100%);
+  text-align: center;
+  padding: 10px;
+  font-size: 25px;
+}
+
+
+.indicateur>.filter {
+
+  background-color: rgb(238, 238, 238);
   display: flex;
+  margin: 0 10px;
+  padding: 10px;
+  border-radius: 10px;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  font-size: 20px;
 }
 
-.indicateur > .titre > svg {
-  color: #382092;
-  font-size: 25px;
+
+
+.indicateur>.filter>select {
+
+  padding: 10px;
   margin-left: 10px;
-  margin-right: 10px;
+  border: 1px solid #bebebe;
+  border-radius: 20px;
 }
 
-.indicateur > .titre > h1 {
-  color: #382092;
-  margin-left: 10px;
-  margin-right: 10px;
-}
-
-.indicateur > .titre > h1 > span:nth-child(1) {
-    color: red;
-    border-top: 5px solid #382092;
-}
-
-.indicateur > .titre > h1 > span:nth-child(2) {
-    color: #382092;
-    border-bottom: 5px solid red;
-}
-
-.indicateur > .text {
-  color: #382092;
-  margin-left: 10px;
-  margin-right: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-  padding: 35px;
-  margin: 0px;
-}
-
-.indicateur > .text > h2 {
-    font-size: 25px;
-    background-color: #382092;
-    color: white;
-    margin: 0;
-    padding: 15px;
-    border-radius: 10px 10px 0px 0px;
-    border-bottom: 3px solid red;
-}
-
-.indicateur > .text > h2 svg {
-    font-size: 25px;
-    margin-right: 10px;
-}
-
-
-.indicateur > .text > span {
-    color: #ddd;
-    font-size: 25px;
-    background-color: #382092;
-    padding: 30px;
-}
-
-.indicateur > .filter {
-    width: 100%;
-    background-color: white;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-
-
-
-.indicateur > .filter > select {
-    height: 50px;
-    width: 400px;
-    margin-left: 10px;
-}
-
-.indicateur > .redirect {
+.indicateur>.redirect {
   background-color: white;
   display: flex;
   flex-direction: row;
@@ -331,39 +324,109 @@ export default {
   padding-bottom: 15px;
 }
 
-.indicateur > .redirect > svg {
-    font-size: 40px;
-    margin-right: 10px;
-    color: #382092;
+.indicateur>.redirect>svg {
+  font-size: 40px;
+  margin-right: 10px;
+  color: #382092;
 }
 
-.indicateur > .statstique {
+.indicateur>.statstique {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 10px;
+  padding: 10px;
+  margin: 0 5px 0px 5px;
+  border-radius: 10px;
+
+
+}
+
+.indicateur>.statstique div {
+  background-color: #f3f3f3;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  min-height: 294px;
+  line-height: 40px;
+  transition: 0.3s ease-in;
+}
+
+.indicateur>.statstique div:hover {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  cursor: pointer;
+
+}
+
+.indicateur>.statstique div p:nth-child(2),
+p:nth-child(3),
+p:nth-child(4) {
+  padding: 5px;
+}
+
+.indicateur>.statstique div:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.74);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+}
+
+.statstique div ul {
+  max-height: 90px;
+  overflow-y: auto;
+  line-height: 30px;
 }
 
 
-.indicateur > .statstique > div > p > svg{
-    color: #382092;
-    font-size: 25px;
-}
-.indicateur > .statstique > div > p:nth-child(2){
-    color: #4e4e4e;
+
+legend {
+  font-weight: bold;
+  color: #3d3d3d;
 }
 
-#app > div > div > div.menu-content > div.content > div > div.statstique > div > ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-wrap: nowrap;
+.statstique div ul li {
+  background-color: rgb(245, 245, 245);
+  margin: 5px;
+  padding: 0 4px;
+  border-radius: 20px;
 }
 
-#app > div > div > div.menu-content > div.content > div > div.statstique > div > ul > li {
-  font-size: 15px;
+
+.indicateur>.statstique>div>p:nth-child(1) {
+  font-size: 20px;
+  border-bottom: 1px solid gray;
+  padding: 5px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: white;
+  text-align: center;
+  background-color: #243064;
+  font-weight: 700;
 }
 
+.indicateur>.statstique>div:hover p:nth-child(1){
+  background-color: #cf1f21;
+}
+
+div p span {
+  font-weight: bold;
+  color:#3d3d3d;
+}
+
+
+
+
+
+fieldset {
+  border: 1px solid rgb(201, 201, 201);
+  margin: 6px;
+
+}
+
+
+.fa-check {
+  font-size: 10px;
+}
+
+svg {
+  color: rgb(75, 75, 75);
+}
 </style>
