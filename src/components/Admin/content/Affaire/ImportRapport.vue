@@ -1,5 +1,5 @@
 <template>
-    <div>
+   <div class="indicateur">
 <!-- Start etap Action Rapport -->
         <div class="actionRapport">
               <div class="diviser">
@@ -30,10 +30,10 @@
 
 
 <!-- Start  Import Rapport   -->
-        <div class="list Mission" v-if="importRapport"> 
+        <div class="list Mission" v-if="importRapport">
           <p> <i class="fa-solid fa-circle-exclamation"></i>Attention lors de la saisie des rapports, vous devez prendre en compte l'ordre "Référence de rapport" de chaque rapport séparément</p>
 
-          <table v-for="(mission, j) in filterMissions" :key="mission._id">
+          <table v-for="(mission, j) in filterMissions" :key="mission._id" border="1">
 
             <thead>
               <tr>
@@ -41,7 +41,7 @@
               </tr>
             </thead>
 
-            <tbody>   
+            <tbody>
 
               <tr>
                 <td>Equipement :</td>
@@ -62,7 +62,7 @@
 
               <tr>
                 <td>References Rapports :</td>
-                <td v-for="(eq, i) in mission.equipement" :key="i"> 
+                <td v-for="(eq, i) in mission.equipement" :key="i">
                   <ul v-for="(item, index) in eq.refRapport" :key="item">
                     <li>
                       <label></label>
@@ -137,7 +137,7 @@
         <!-- End Import Rapport -->
 
 <!-- Start Classment Rapport -->
-        <div class="list Mission" v-if="classementRapport"> 
+        <div class="list Mission" v-if="classementRapport">
           <p v-if="buttonClassficationAffaire == false"> Vous Pouvez sisair un classfication a cet affaire<input type="button" value="Oui" @click="handelClassficationOne"></p>
           <p> {{ message }}</p>
 
@@ -146,7 +146,7 @@
           <div v-if="classficationAffaire">
                 <p>Première classe - 1</p>
                 <div v-for="itemOne in niveauOne" :key="itemOne.count">
-                    <input type="text" v-model="itemOne.titre" :disabled = itemOne.disabled> 
+                    <input type="text" v-model="itemOne.titre" :disabled = itemOne.disabled>
                 </div>
                 <br>
               <input type="button" value="add" v-if="niveauOne[0].disabled == false" @click="addNiveauOne()">
@@ -154,7 +154,7 @@
               <input type="button" value="delete" v-if="niveauOne[0].disabled == true" @click="deleteNiveauOne()">
           </div>
 
-          
+
 
           <!-- End One -->
 
@@ -163,7 +163,7 @@
           <div v-if="classficationAffaire">
               <p>Deuxième classe - 2</p>
               <div v-for="itemTow in niveauTow" :key="itemTow.count">
-                  <input type="text" v-model="itemTow.titre" :disabled = itemTow.disabled> 
+                  <input type="text" v-model="itemTow.titre" :disabled = itemTow.disabled>
               </div>
             <input type="button" value="add" v-if="niveauTow[0].disabled == false" @click="addNiveauTow()">
             <input type="button" value="save" v-if="niveauTow[0].disabled == false" @click="saveNiveauTow()">
@@ -177,7 +177,7 @@
           <div v-if="classficationAffaire">
             <p>Troisième classe - 3</p>
             <div v-for="itemTree in niveauTree" :key="itemTree.count">
-                <input type="text" v-model="itemTree.titre" :disabled = itemTree.disabled> 
+                <input type="text" v-model="itemTree.titre" :disabled = itemTree.disabled>
             </div>
             <input type="button" value="add" v-if="niveauTree[0].disabled == false" @click="addNiveauTree()">
             <input type="button" value="save" v-if="niveauTree[0].disabled == false" @click="saveNiveauTree()">
@@ -189,7 +189,7 @@
           <div v-if="classficationAffaire">
             <p>Troisième classe - 4</p>
             <div v-for="itemFour in niveauFour" :key="itemFour.count">
-                <input type="text" v-model="itemFour.titre" :disabled = itemFour.disabled> 
+                <input type="text" v-model="itemFour.titre" :disabled = itemFour.disabled>
             </div>
             <input type="button" value="add" v-if="niveauFour[0].disabled == false" @click="addNiveauFour()">
             <input type="button" value="save" v-if="niveauFour[0].disabled == false" @click="saveNiveauFour()">
@@ -204,7 +204,7 @@
 
             </p>
             <div v-for="itemFive in niveauFive" :key="itemFive.count">
-                <input type="text" v-model="itemFive.titre" :disabled = itemFive.disabled> 
+                <input type="text" v-model="itemFive.titre" :disabled = itemFive.disabled>
             </div>
             <input type="button" value="add" v-if="niveauFive[0].disabled == false" @click="addNiveauFive()">
             <input type="button" value="save" v-if="niveauFive[0].disabled == false" @click="saveNiveauFive()">
@@ -219,8 +219,8 @@
           <!-- Start Input delete classfication -->
           <input type="button" value="Effacer" v-if="buttonClassficationAffaire == true" @click="effacerClassAffaire()">
           <!-- End Input delete classfication -->
-        </div> 
-          <!-- End  Classment Rapporrts --> 
+        </div>
+          <!-- End  Classment Rapporrts -->
 
           <!-- Start  List Rapports -->
           <div v-if="classficationRapports">
@@ -258,7 +258,7 @@
                  <input v-if="rapport.disabled == true" type="button" value="Supprimer" @click="deleteClassRapport(rapport._id, index)">
               </li>
             </ul>
-          </div>          
+          </div>
           <!-- Start  List Rapports -->
 
 
@@ -290,7 +290,7 @@
           <input type="button" value="Ajouter un Schema" @click="ajouterShema()">
         </div>
         <!-- End Classfication Shema  -->
-        
+
         <!-- Start Envoye Rapport -->
         <div v-if="envoyerRapport">
           <div>
@@ -314,7 +314,7 @@
           <p> {{ msgValidationRapport }}</p>
         </div>
         <!-- End Envoye Rapport  -->
-        
+
 
 
 
@@ -335,12 +335,12 @@ export default {
     },
 
     components: {
-      
+
     },
 
     data() {
         return {
-          
+
             msgSendClient : null,
             interlocuteurs : [],
             checkedInterlocuteur : [],
@@ -399,7 +399,7 @@ export default {
         niveauFour : null,
         niveauFive : null,
         disabled : false
-      });   
+      });
     },
 
     enregistrerClassShema(niveauUn, niveauDeux, niveauTrois, niveauQuatre, niveauCinq, index) {
@@ -534,7 +534,7 @@ export default {
               disabled : false
         });
     },
-// tree    
+// tree
 
 // four
 
@@ -562,7 +562,7 @@ export default {
               disabled : false
         });
     },
-// four    
+// four
 
 // Five
 
@@ -590,7 +590,7 @@ export default {
               disabled : false
         });
     },
-// Five    
+// Five
 
 
     enregistrerClassAffaire() {
@@ -625,7 +625,7 @@ export default {
           console.log(error);
       });
 
-    }, 
+    },
 
     effacerClassAffaire() {
         Service.EffacerClassAffaire(this.numeroAffaire)
@@ -689,7 +689,7 @@ export default {
               if(index != -1) {
                 this.checkedRapport.splice(index, 1);
 
-              }    
+              }
           }
 
     },
@@ -706,7 +706,7 @@ export default {
           console.log(error);
       });
 
-    }, 
+    },
 
     classficationShema() {
         this.flagClassficationShema = true;
@@ -767,7 +767,7 @@ export default {
             if(result)  {
                 this.missions[j].equipement[i].sendRapport.splice(index, 1);
                 this.missions[j].equipement[i].sendRapport.splice(index, 1, false);
-            }  
+            }
 
         })
         .catch((error) => {
@@ -788,7 +788,7 @@ export default {
     addQuantite(b, c) {
 
     var today = new Date();
-    var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
     var yyyy = today.getFullYear();
 
       if(this.newRefRapport == null) {
@@ -848,20 +848,20 @@ export default {
 
       // valider Rapport
       saveRapport(referenceRapport, typeMission, i, j, index, missionId, typeRapport, categorie) {
-    
+
         Rapport.SaveRapport(this.selectedFile[i], this.clientId, referenceRapport, typeMission, this.designation, this.dateProductionControle, this.dateIntervention, this.responsableClient, missionId, i, j, index, this.numeroAffaire, typeRapport, categorie)
           .then((result) => {
 
             if(result)  {
                 this.missions[j].equipement[i].sendRapport.splice(index, 1);
                 this.missions[j].equipement[i].sendRapport.splice(index, 1, true);
-            }  
+            }
 
           })
           .catch((error) => {
                console.log(error);
           });
-          
+
       },
 
       accepterRapport() {
@@ -872,7 +872,7 @@ export default {
               setTimeout(() => {
                   return this.$router.go(this.$router.currentRoute);
               }, 5000)
-              
+
         })
         .catch((err) => {
           console.log(err)
@@ -880,14 +880,14 @@ export default {
       }
 
     },
-    
+
     created() {
 
 
       // check classfication exist or no
       Service.ReadClassAffaire(this.numeroAffaire)
       .then((result) => {
-        
+
           result.msg.classOne.forEach((element, index) => {
             this.niveauOne.push({
               count : index,
@@ -990,14 +990,14 @@ export default {
       .catch((error) => {
           console.log(error);
       });
-        
+
     },
 
     computed : {
 
       filterMissions() {
         return this.missions.filter((item) => {
-            return item;       
+            return item;
         });
       },
 
@@ -1005,7 +1005,7 @@ export default {
         return this.rapports.filter((item) => {
           return item.sendClient == false;
         });
-      }  
+      }
     }
 
 }
@@ -1014,6 +1014,8 @@ export default {
 </script>
 
 <style scoped>
+
+
 
 .form {
   width: 100%;
@@ -1040,7 +1042,7 @@ export default {
   width:100%;
 
 }
- 
+
 .form div select {
   height: 40px;
     width:100%;
@@ -1168,7 +1170,7 @@ hr {
     background: green;
     border: 0;
     color: white;
-    font-size: 15px;  
+    font-size: 15px;
     cursor: pointer;
 }
 
@@ -1335,7 +1337,7 @@ margin-left: 50px;
     width: 400px;
     height: 40px;
     border: 1px solid #243264;
-}   
+}
 
 #app > div > div > div.menu-content > div.content > div > div > div.list.Mission > ul > ul > div > ul > li > input[type=text] {
     width: 400px;

@@ -163,8 +163,8 @@
         <fieldset>
           <legend><i class="fa-solid fa-list-check"></i> Liste des Offre</legend>
 
-          <ul v-for="(element, l) in mois.novembre" :key="l">
-            <li><i class="fa-solid fa-check"></i> {{ element.numeroAffaire }}</li>
+          <ul >
+            <li v-for="(element, l) in mois.novembre" :key="l"><i class="fa-solid fa-check"></i> {{ element.numeroAffaire }}</li>
           </ul>
         </fieldset>
       </div>
@@ -347,8 +347,9 @@ export default {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   min-height: 294px;
-  line-height: 40px;
   transition: 0.3s ease-in;
+  line-height: 40px;
+
 }
 
 .indicateur>.statstique div:hover {
@@ -363,17 +364,8 @@ p:nth-child(4) {
   padding: 5px;
 }
 
-.indicateur>.statstique div:nth-child(odd) {
-  background-color: rgba(255, 255, 255, 0.74);
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
-}
 
-.statstique div ul {
-  max-height: 90px;
-  overflow-y: auto;
-  line-height: 30px;
-}
 
 
 
@@ -382,13 +374,18 @@ legend {
   color: #3d3d3d;
 }
 
+.statstique div ul {
+  max-height: 90px;
+  overflow-y: auto;
+  line-height: 30px;
+}
+
 .statstique div ul li {
   background-color: rgb(245, 245, 245);
   margin: 5px;
   padding: 0 4px;
   border-radius: 20px;
 }
-
 
 .indicateur>.statstique>div>p:nth-child(1) {
   font-size: 20px;
@@ -400,10 +397,17 @@ legend {
   text-align: center;
   background-color: #243064;
   font-weight: 700;
+  transition: 0.3s ease-out;
 }
 
 .indicateur>.statstique>div:hover p:nth-child(1){
   background-color: #cf1f21;
+
+}
+
+.indicateur>.statstique div:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.74);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 div p span {

@@ -564,8 +564,8 @@ destory() {
 }
 
 #app > div > div > div.menu-content > div.content > div.list > table > tbody > tr > th:nth-child(8) > div > input[type=button]:nth-child(2) {
-    padding: 0px;
-    margin-bottom: 5px;
+  padding: 10px 13px;
+    margin:10px;
     width: -webkit-fill-available;
     height: 40px;
     border: 0px;

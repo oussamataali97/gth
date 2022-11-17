@@ -4,7 +4,7 @@
       <h3 v-if="flagImportFacture == false">Facture émise</h3>
       <div v-if="flagImportFacture == false" class="rechercher-table">
 
-      
+
             <div class="rechercher">
                 <input type="text" v-model="rechercher" placeholder="Recherche un affaire avec Facture Client">
             </div>
@@ -26,7 +26,7 @@
                       <label for="refTransa">Référence de transaction ou bénéficiaire</label>
                       <input type="text" v-model="refTransaction">
                   </div>
-                  
+
                   <div >
                       <label for="refTransa">Document de preuve</label>
                       <input type="file" multiple="multiple" class="file" placeholder="Fichier PDF" ref="file" @change="previewFile">
@@ -38,7 +38,7 @@
                   <div>
                       <input type="submit" value="Importer Preuve Paiement" @click="enregitreCheque()">
                   </div>
-                  
+
               </div>
 
 
@@ -70,7 +70,7 @@
                 <td v-if="affaire.numeroAffaire">
                     <p v-for="(mission, index) in missions" :key="index"> {{ mission.numeroAffaire == affaire.numeroAffaire  ? mission.codeMission : '' }}</p>
                 </td>
-                
+
                 <td>
                   <a  v-show="affaire.emise != 'false'" @click="deleteEmise(affaire._id, affaire.emise, i)"><i class="fa-solid fa-backward-step"></i></a>
                 </td>
@@ -110,7 +110,7 @@
             </ul> -->
 
 
-      </div> 
+      </div>
 
 
 
@@ -169,7 +169,7 @@ export default {
   },
   methods: {
 
-    
+
 
     showEmise(filename) {
 
@@ -214,7 +214,7 @@ export default {
 
     },
 
-    // preciew file 
+    // preciew file
     previewFile() {
       this.file = this.$refs.file.files[0];
     },
@@ -286,12 +286,12 @@ export default {
       })
 
     },
-    // handel Import BE 
+    // handel Import BE
     handelImportBE(affaireId) {
         this.flagImportBD = true;
         this.numeroAffaire = affaireId;
     },
-    // display Bon Cammande 
+    // display Bon Cammande
     displayIntervention(filename) {
       console.log(filename);
       Service.displayIntervention(filename)
@@ -302,8 +302,8 @@ export default {
           console.error(`HTTP error: ${error.name} => ${error.message}`);
           throw "fail request at: GET /refreshtime";
         });
-    },    
-  // display Bon Cammande 
+    },
+  // display Bon Cammande
     displayBC(filename) {
       console.log(filename);
       Service.displayBC(filename)
@@ -314,7 +314,7 @@ export default {
           console.error(`HTTP error: ${error.name} => ${error.message}`);
           throw "fail request at: GET /refreshtime";
         });
-    },    
+    },
     // display DEVIS
     displayDEVIS(filename) {
       console.log(filename);
@@ -326,7 +326,7 @@ export default {
           console.error(`HTTP error: ${error.name} => ${error.message}`);
           throw "fail request at: GET /refreshtime";
         });
-    }, 
+    },
 // Enregistre Bon Cammande
 enregitreBonCommande() {
 
@@ -368,7 +368,7 @@ bonCommande(affaireId) {
     } else {
       this.affaireId = affaireId;
       this.flagUplodeBonCammnade = true
-    }   
+    }
 },
 // delete more one client (clients)
     deleteClients() {
@@ -379,8 +379,8 @@ bonCommande(affaireId) {
         this.clients.splice(this.checkedClients[i], 1);
 
           Service.deleteClient(idClients[i])
-          .then((result) => {    
-            this.msg = result.data.msg;        
+          .then((result) => {
+            this.msg = result.data.msg;
           })
           .catch((error) => {
               this.msg = error.message;
@@ -388,7 +388,7 @@ bonCommande(affaireId) {
               throw "fail request at: GET /refreshtime";
           });
       }
-      
+
 
     },
     // delete one client
@@ -396,9 +396,9 @@ bonCommande(affaireId) {
       const clientId = this.clients[i]._id;
       this.clients.splice(i, 1);
       Service.deleteClient(clientId)
-      .then((result) => { 
+      .then((result) => {
 
-        this.msg = result.data.msg;        
+        this.msg = result.data.msg;
       })
       .catch((error) => {
           this.msg = error.message;
@@ -427,10 +427,10 @@ bonCommande(affaireId) {
             return this.affaires.filter((item) => {
               if(!this.rechercher)
               {
-                return item         
-              } 
+                return item
+              }
                 const date = new Date(item.date).toLocaleDateString()
-                return !date.indexOf(this.rechercher) || !item.numeroAffaire.toString().indexOf(this.rechercher.toString()) 
+                return !date.indexOf(this.rechercher) || !item.numeroAffaire.toString().indexOf(this.rechercher.toString())
             })
       }
   },
@@ -440,7 +440,7 @@ bonCommande(affaireId) {
 
  // read all Affaires LOCAL
       Service.readAllAffaires()
-      .then((result) => {      
+      .then((result) => {
          result.data.result.forEach((element) => {
            if(element.facture != 'false')
            {
@@ -468,7 +468,7 @@ bonCommande(affaireId) {
       });
 
 
-      // Read all clients and check rapport exist or no 
+      // Read all clients and check rapport exist or no
       Service.readClient()
       .then((result) => {
         this.clients = result.data.clients;
@@ -478,7 +478,7 @@ bonCommande(affaireId) {
                 var objectsFound = [];
                 // search db atlas cloud
                 for(let objectNumber in result.clients){
-                    var nomSociete = result.clients[objectNumber].nomSociete;   
+                    var nomSociete = result.clients[objectNumber].nomSociete;
                     var idSociete = result.clients[objectNumber]._id;
                     //search db local
                     this.clients.forEach(element => {
@@ -528,7 +528,7 @@ bonCommande(affaireId) {
   color: white;
   padding: 10px;
   height: fit-content;
-  width: 100%; 
+  width: 100%;
 }
 
 .gestionInspecteur {
@@ -643,14 +643,14 @@ bonCommande(affaireId) {
 
 .gestionInspecteur .rechercher-table ul li {
   color:black;
- margin-left: 5px; 
+ margin-left: 5px;
  cursor: pointer;
  font-size: 18px;
 }
 .gestionInspecteur .rechercher-table ul li:hover {
   color:red;
  margin-left: 5px;
- transition: 0.3s; 
+ transition: 0.3s;
 }
 
 
@@ -793,9 +793,18 @@ h4 {
 
 #app > div > div > div.menu-content > div.content > div > h3 {
 
-    background-color: #ff0000d4;
-    padding: 15px;
-    
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin:0;
+
+    color: white;
+    background: linear-gradient(346deg, rgba(207,31,33,1) 0%, rgba(24,86,161,1) 100%);    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 25px;
+
 }
 
 

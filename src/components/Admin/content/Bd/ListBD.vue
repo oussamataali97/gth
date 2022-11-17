@@ -4,7 +4,7 @@
       <h3>Liste des BORDEREAUX D'ENVOI</h3>
       <div class="rechercher-table">
 
-      
+
             <div class="rechercher">
                 <input type="text" v-model="rechercher" placeholder="Recherche un affaire avec Bon Commande">
             </div>
@@ -59,7 +59,7 @@
             </ul> -->
 
 
-      </div> 
+      </div>
 
 
 
@@ -112,19 +112,19 @@ export default {
             return this.bordereaus.filter((item) => {
               if(!this.rechercher)
               {
-                return item         
-              } 
+                return item
+              }
                 const date = new Date(item.date).toLocaleDateString()
                 const dateRecu = new Date(item.dateRecu).toLocaleDateString()
                 const dateEnvoi = new Date(item.dateEnvoi).toLocaleDateString()
-                return !item.numeroBD.indexOf(this.rechercher) 
-                       || !date.indexOf(this.rechercher) 
-                       || !dateRecu.indexOf(this.rechercher) 
-                       || !dateEnvoi.indexOf(this.rechercher) 
-                       || !item.numeroAffaire.toString().indexOf(this.rechercher.toString()) 
-                       || !item.refClient.toString().toLowerCase().indexOf(this.rechercher.toString().toLowerCase()) 
-                       || !item.raisonSocial.toLowerCase().indexOf(this.rechercher.toLowerCase()) 
-                       || !item.numeroBC.toString().indexOf(this.rechercher.toString()) 
+                return !item.numeroBD.indexOf(this.rechercher)
+                       || !date.indexOf(this.rechercher)
+                       || !dateRecu.indexOf(this.rechercher)
+                       || !dateEnvoi.indexOf(this.rechercher)
+                       || !item.numeroAffaire.toString().indexOf(this.rechercher.toString())
+                       || !item.refClient.toString().toLowerCase().indexOf(this.rechercher.toString().toLowerCase())
+                       || !item.raisonSocial.toLowerCase().indexOf(this.rechercher.toLowerCase())
+                       || !item.numeroBC.toString().indexOf(this.rechercher.toString())
                        || !item.numeroICE.toString().indexOf(this.rechercher.toString())
                        || !item.telephone.toString().indexOf(this.rechercher.toString())
             })
@@ -148,7 +148,7 @@ Service.readAllBordereaus()
 
  // read all Affaires LOCAL
       Service.readAllAffaires()
-      .then((result) => {      
+      .then((result) => {
          result.data.result.forEach((element) => {
            if(element.renseignerIntervention != 'false')
            {
@@ -176,7 +176,7 @@ Service.readAllBordereaus()
       });
 
 
-      // Read all clients and check rapport exist or no 
+      // Read all clients and check rapport exist or no
       Service.readClient()
       .then((result) => {
         this.clients = result.data.clients;
@@ -186,7 +186,7 @@ Service.readAllBordereaus()
                 var objectsFound = [];
                 // search db atlas cloud
                 for(let objectNumber in result.clients){
-                    var nomSociete = result.clients[objectNumber].nomSociete;   
+                    var nomSociete = result.clients[objectNumber].nomSociete;
                     var idSociete = result.clients[objectNumber]._id;
                     //search db local
                     this.clients.forEach(element => {
@@ -236,7 +236,7 @@ Service.readAllBordereaus()
   color: white;
   padding: 10px;
   height: fit-content;
-  width: 100%; 
+  width: 100%;
 }
 
 .gestionInspecteur {
@@ -350,14 +350,14 @@ Service.readAllBordereaus()
 
 .gestionInspecteur .rechercher-table ul li {
   color:black;
- margin-left: 2px; 
+ margin-left: 2px;
  cursor: pointer;
  font-size: 8px;
 }
 .gestionInspecteur .rechercher-table ul li:hover {
   color:red;
  margin-left: 5px;
- transition: 0.3s; 
+ transition: 0.3s;
 }
 
 
@@ -389,9 +389,18 @@ Service.readAllBordereaus()
 
 #app > div > div > div.menu-content > div.content > div > h3 {
 
-    background-color: #ff0000d4;
-    padding: 15px;
-    
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin:0;
+
+    color: white;
+    background: linear-gradient(346deg, rgba(207,31,33,1) 0%, rgba(24,86,161,1) 100%);    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 25px;
+
 }
 
 #inspecteurs > tr > td:nth-child(11) > svg  {

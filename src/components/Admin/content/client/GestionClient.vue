@@ -213,6 +213,7 @@ export default {
 
 .gestionInspecteur .rechercher-table {
   width: 100%;
+
   height: 100%;
 }
 .gestionInspecteur .rechercher-table .rechercher {
@@ -249,12 +250,16 @@ export default {
 .gestionInspecteur .rechercher-table table tr td {
     background-color: #ddd;
     color: black;
-    padding: 5px;
+    padding: 5px 2px;
 }
 .gestionInspecteur .rechercher-table table tr td a {
   cursor: pointer;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left:5px;
+
+}
+
+.gestionInspecteur .rechercher-table table tr td a svg{
+  font-size: 17px !important;
 }
 .fa-trash-can {
   color: red;
@@ -332,8 +337,17 @@ export default {
 }
 
 #app > div > div > div.menu-content > div.content > div > h3 {
-    background-color: #ff0000d4;
-    padding: 15px;
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin:0;
+
+    color: white;
+    background: linear-gradient(346deg, rgba(207,31,33,1) 0%, rgba(24,86,161,1) 100%);    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 25px;
 }
 
 #app > div > div > div.menu-content > div.content {

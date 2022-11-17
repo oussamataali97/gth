@@ -523,12 +523,11 @@ display: grid;
 grid-template-columns: 20% 80%;
 }
 
-.admin .container .menu-content menu {
-width: 20%;
-}
+
 
 .admin .container .menu-content .content {
   width: 100%;
+
 
 }
 

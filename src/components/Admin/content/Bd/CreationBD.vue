@@ -4,7 +4,7 @@
       <h3 v-if="flagImportBD == false">Création Bordereau d'envoi</h3>
       <div v-if="flagImportBD == false" class="rechercher-table">
 
-      
+
             <div class="rechercher">
                 <input type="text" v-model="rechercher">
             </div>
@@ -55,27 +55,27 @@
                   <a  v-if="affaire.be != 'false'" @click="deleteImportRapportandBE(affaire._id, i)"><i class="fa-solid fa-backward-step"></i></a>
                 </td>
 
-                <td v-if="affaire.nameFileAffaire != 'false'" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;" @click="displayDEVIS(affaire.nameFileAffaire)"><p style="font-size: 25px; color:green; font-wight: bold;font-weight: bold;">P</p><i class="fa-solid fa-download" style="font-size: 25px; color:green;"></i></td>
-                <td v-if="affaire.nameFileAffaire == 'false'" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;"><p style="color: red; font-size: 25px;">P</p><i class="fa-solid fa-forward-step" style="font-size: 25px; color:red;"></i></td>
+                <td v-if="affaire.nameFileAffaire != 'false'" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;" @click="displayDEVIS(affaire.nameFileAffaire)"><p style="font-size: 20px; color:green; font-wight: bold;font-weight: bold;">P</p><i class="fa-solid fa-download" style="font-size: 20px; color:green;"></i></td>
+                <td v-if="affaire.nameFileAffaire == 'false'" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;"><p style="color: red; font-size: 20px;">P</p><i class="fa-solid fa-forward-step" style="font-size: 20px; color:red;"></i></td>
 
-                <td v-if="affaire.bonCommande != 'false'" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;" @click="displayBC(affaire.bonCommande)"><p style="font-size: 25px; color:green; font-wight: bold; font-weight: bold;">AP</p><i class="fa-solid fa-download" style="font-size: 25px; color:green;"></i></td>
-                <td v-if="affaire.bonCommande == 'false'" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;"><p style="font-size: 25px; color:red; font-wight: bold; font-weight: bold;">AP</p><i class="fa-solid fa-forward-step" style="font-size: 25px; color:red;"></i></td>
+                <td v-if="affaire.bonCommande != 'false'" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;" @click="displayBC(affaire.bonCommande)"><p style="font-size: 20px; color:green; font-wight: bold; font-weight: bold;">AP</p><i class="fa-solid fa-download" style="font-size: 20px; color:green;"></i></td>
+                <td v-if="affaire.bonCommande == 'false'" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;"><p style="font-size: 20px; color:red; font-wight: bold; font-weight: bold;">AP</p><i class="fa-solid fa-forward-step" style="font-size: 20px; color:red;"></i></td>
 
-                <td v-if="affaire.renseignerIntervention != 'false'"  @click="displayIntervention(affaire.renseignerIntervention)" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;"><p style="font-size: 25px; color:green; font-wight: bold; font-weight: bold;">EP</p><i class="fa-solid fa-download" style="font-size: 25px; color:green;"></i></td>
-                <td v-if="affaire.renseignerIntervention == 'false'" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;"><p style="font-size: 25px; color:red; font-wight: bold; font-weight: bold;">EP</p><i class="fa-solid fa-forward-step" style="font-size: 25px; color:red;"></i></td>
+                <td v-if="affaire.renseignerIntervention != 'false'"  @click="displayIntervention(affaire.renseignerIntervention)" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;"><p style="font-size: 20px; color:green; font-wight: bold; font-weight: bold;">EP</p><i class="fa-solid fa-download" style="font-size: 20px; color:green;"></i></td>
+                <td v-if="affaire.renseignerIntervention == 'false'" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;"><p style="font-size: 20px; color:red; font-wight: bold; font-weight: bold;">EP</p><i class="fa-solid fa-forward-step" style="font-size: 20px; color:red;"></i></td>
 
 
-                <td v-if="affaire.importRapport != 'false'" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;"><p style="font-size: 25px; color:green; font-wight: bold;font-weight: bold;">RE</p><i class="fa-solid fa-download" style="font-size: 25px; color:white;"></i></td>
-                <td v-if="affaire.importRapport == 'false'"  @click="displayImportRapports(affaire.numeroAffaire)" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;"><p style="font-size: 25px; color:red; font-wight: bold; font-weight: bold;">RE</p><i class="fa-solid fa-forward-step" style="font-size: 25px; color:red;"></i></td>
+                <td v-if="affaire.importRapport != 'false'" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;"><p style="font-size: 20px; color:green; font-wight: bold;font-weight: bold;">RE</p><i class="fa-solid fa-download" style="font-size: 20px; color:white;"></i></td>
+                <td v-if="affaire.importRapport == 'false'"  @click="displayImportRapports(affaire.numeroAffaire)" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;"><p style="font-size: 20px; color:red; font-wight: bold; font-weight: bold;">RE</p><i class="fa-solid fa-forward-step" style="font-size: 20px; color:red;"></i></td>
 
-                <td v-show="affaire.be != 'false'" @click="showBE(affaire.be)" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;"><p style="font-size: 25px; color:green; font-wight: bold;font-weight: bold;">BE</p><i class="fa-solid fa-download" style="font-size: 25px; color:green;"></i></td>
-                <td v-show="affaire.be == 'false'" @click="handelImportBE(affaire._id)" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;"><p style="font-size: 25px; color:red; font-wight: bold; font-weight: bold;">BE</p><i class="fa-solid fa-forward-step" style="font-size: 25px; color:red;"></i></td>
+                <td v-show="affaire.be != 'false'" @click="showBE(affaire.be)" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;"><p style="font-size: 20px; color:green; font-wight: bold;font-weight: bold;">BE</p><i class="fa-solid fa-download" style="font-size: 20px; color:green;"></i></td>
+                <td v-show="affaire.be == 'false'" @click="handelImportBE(affaire._id)" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;"><p style="font-size: 20px; color:red; font-wight: bold; font-weight: bold;">BE</p><i class="fa-solid fa-forward-step" style="font-size: 20px; color:red;"></i></td>
 
-                <td v-if="affaire.facture != 'false'" @click="showFacture(affaire.facture)" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;"><p style="font-size: 25px; color:green; font-wight: bold;font-weight: bold;">FA</p><i class="fa-solid fa-download" style="font-size: 25px; color:green;"></i></td>
-                <td v-if="affaire.facture == 'false'" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;"><p style="font-size: 25px; color:red; font-wight: bold; font-weight: bold;">FA</p><i class="fa-solid fa-forward-step" style="font-size: 25px; color:white;"></i></td>
+                <td v-if="affaire.facture != 'false'" @click="showFacture(affaire.facture)" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;"><p style="font-size: 20px; color:green; font-wight: bold;font-weight: bold;">FA</p><i class="fa-solid fa-download" style="font-size: 20px; color:green;"></i></td>
+                <td v-if="affaire.facture == 'false'" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;"><p style="font-size: 20px; color:red; font-wight: bold; font-weight: bold;">FA</p><i class="fa-solid fa-forward-step" style="font-size: 20px; color:white;"></i></td>
 
-                <td v-show="affaire.emise != 'false'" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;" @click="showEmise(affaire.emise)"><p style="font-size: 25px; color:green; font-wight: bold;font-weight: bold;">EN</p><i class="fa-solid fa-download" style="font-size: 25px; color:green;"></i></td>
-                <td v-show="affaire.emise == 'false'" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;" @click="handelInsertEmise(affaire._id, i)"><p style="font-size: 25px; color:red; font-wight: bold; font-weight: bold;">EN</p><i class="fa-solid fa-forward-step" style="font-size: 25px; color:white;"></i></td>
+                <td v-show="affaire.emise != 'false'" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;" @click="showEmise(affaire.emise)"><p style="font-size: 20px; color:green; font-wight: bold;font-weight: bold;">EN</p><i class="fa-solid fa-download" style="font-size: 20px; color:green;"></i></td>
+                <td v-show="affaire.emise == 'false'" style="background-color: white; margin : 0; padding: 0; padding-bottom: 5px; padding-left: 5px;" @click="handelInsertEmise(affaire._id, i)"><p style="font-size: 20px; color:red; font-wight: bold; font-weight: bold;">EN</p><i class="fa-solid fa-forward-step" style="font-size: 20px; color:white;"></i></td>
 
 
               </tr>
@@ -86,10 +86,10 @@
             </div>
 
 
-      </div> 
+      </div>
 
 
-    
+
     <!--  Start Info Client   -->
     <ImportBD :numeroAffaire="numeroAffaire" v-if="flagImportBD == true" />
     <!--  End Info Client   -->
@@ -132,7 +132,7 @@ export default {
       echec: null
     };
   },
-  
+
   methods: {
 
 
@@ -193,12 +193,12 @@ export default {
       })
 
     },
-    // handel Import BE 
+    // handel Import BE
     handelImportBE(affaireId) {
         this.flagImportBD = true;
         this.numeroAffaire = affaireId;
     },
-    // display Bon Cammande 
+    // display Bon Cammande
     displayIntervention(filename) {
       console.log(filename);
       Service.displayIntervention(filename)
@@ -209,8 +209,8 @@ export default {
           console.error(`HTTP error: ${error.name} => ${error.message}`);
           throw "fail request at: GET /refreshtime";
         });
-    },    
-  // display Bon Cammande 
+    },
+  // display Bon Cammande
     displayBC(filename) {
       Service.displayBC(filename)
         .then((data) => {
@@ -220,7 +220,7 @@ export default {
           console.error(`HTTP error: ${error.name} => ${error.message}`);
           throw "fail request at: GET /refreshtime";
         });
-    },    
+    },
     // display DEVIS
     displayDEVIS(filename) {
       Service.displayDEVIS(filename)
@@ -231,8 +231,8 @@ export default {
           console.error(`HTTP error: ${error.name} => ${error.message}`);
           throw "fail request at: GET /refreshtime";
         });
-    }, 
-    
+    },
+
     // Enregistre Bon Cammande
     enregitreBonCommande() {
 
@@ -262,7 +262,7 @@ export default {
                     throw "fail request at: GET /refreshtime";
                   });
         },
-      // preciew file 
+      // preciew file
       previewFile() {
               this.file = this.$refs.file.files[0];
               if(this.file) {
@@ -280,7 +280,7 @@ export default {
           } else {
             this.affaireId = affaireId;
             this.flagUplodeBonCammnade = true
-          }   
+          }
       },
      // delete more one client (clients)
     deleteClients() {
@@ -291,8 +291,8 @@ export default {
         this.clients.splice(this.checkedClients[i], 1);
 
           Service.deleteClient(idClients[i])
-          .then((result) => {    
-            this.msg = result.data.msg;        
+          .then((result) => {
+            this.msg = result.data.msg;
           })
           .catch((error) => {
               this.msg = error.message;
@@ -300,7 +300,7 @@ export default {
               throw "fail request at: GET /refreshtime";
           });
       }
-      
+
 
     },
     // delete one client
@@ -308,9 +308,9 @@ export default {
       const clientId = this.clients[i]._id;
       this.clients.splice(i, 1);
       Service.deleteClient(clientId)
-      .then((result) => { 
+      .then((result) => {
 
-        this.msg = result.data.msg;        
+        this.msg = result.data.msg;
       })
       .catch((error) => {
           this.msg = error.message;
@@ -339,10 +339,10 @@ export default {
                 return this.affaires.filter((item) => {
                   if(!this.rechercher)
                   {
-                    return item         
-                  } 
+                    return item
+                  }
                     const date = new Date(item.date).toLocaleDateString()
-                    return !date.indexOf(this.rechercher) || !item.numeroAffaire.toString().indexOf(this.rechercher.toString()) 
+                    return !date.indexOf(this.rechercher) || !item.numeroAffaire.toString().indexOf(this.rechercher.toString())
                 });
             }
   },
@@ -352,7 +352,7 @@ export default {
 
  // read all Affaires LOCAL
       Service.readAllAffaires()
-      .then((result) => {      
+      .then((result) => {
          result.data.result.forEach((element) => {
            if(element.importRapport != 'false' && element.renseignerIntervention != 'false')
            {
@@ -379,8 +379,8 @@ export default {
               throw "fail request at: GET /refreshtime";
       });
 
-// getAffaire 
-      // Read all clients and check rapport exist or no 
+// getAffaire
+      // Read all clients and check rapport exist or no
       Service.readClient()
       .then((result) => {
         this.clients = result.data.clients;
@@ -390,7 +390,7 @@ export default {
                 var objectsFound = [];
                 // search db atlas cloud
                 for(let objectNumber in result.clients){
-                    var nomSociete = result.clients[objectNumber].nomSociete;   
+                    var nomSociete = result.clients[objectNumber].nomSociete;
                     var idSociete = result.clients[objectNumber]._id;
                     //search db local
                     this.clients.forEach(element => {
@@ -440,7 +440,7 @@ export default {
   color: white;
   padding: 10px;
   height: fit-content;
-  width: 100%; 
+  width: 100%;
 }
 
 .gestionInspecteur {
@@ -555,14 +555,14 @@ export default {
 
 .gestionInspecteur .rechercher-table ul li {
   color:black;
- margin-left: 5px; 
+ margin-left: 5px;
  cursor: pointer;
  font-size: 18px;
 }
 .gestionInspecteur .rechercher-table ul li:hover {
   color:red;
  margin-left: 5px;
- transition: 0.3s; 
+ transition: 0.3s;
 }
 
 
@@ -583,7 +583,7 @@ export default {
 }
 
 #inspecteurs > tr > td:nth-child(7) > a > svg {
-    font-size: 25px;
+    font-size: 20px;
     color: red;
     cursor: pointer;
 }
@@ -600,8 +600,17 @@ export default {
 
 #app > div > div > div.menu-content > div.content > div > h3 {
 
-    background-color: #ff0000d4;
-    padding: 15px;
-    
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin:0;
+
+    color: white;
+    background: linear-gradient(346deg, rgba(207,31,33,1) 0%, rgba(24,86,161,1) 100%);    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 20px;
+
 }
 </style>

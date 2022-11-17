@@ -477,7 +477,9 @@ z-index: 77;
 
 
 
-
+#stat svg{
+  margin-left:10px;
+}
 
 
 

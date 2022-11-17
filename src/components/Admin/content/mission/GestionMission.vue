@@ -80,6 +80,7 @@ export default {
   name: "gestionInspecteur",
   components: {
   },
+
   data() {
     return {
       stautsUser:  null,

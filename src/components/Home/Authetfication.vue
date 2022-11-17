@@ -27,8 +27,6 @@
 
         <input type="password" v-model="auth.password">
       </div>
-
-
         <button  type="submit" @click="authetfication()"> Se Connecter <i class="fa-solid fa-right-to-bracket"></i></button>
 
     </div>
@@ -38,7 +36,7 @@
 </template>
 
 <script>
-// import Service from "../../Service";
+ import Service from "../../Service";
 export default {
   name: "auth",
   data() {
@@ -53,41 +51,29 @@ export default {
 
     authetfication() {
 
-      if(this.auth.email == "achraflahcen46@gmail.com" && this.auth.password=="gthconsult") {
+
+     //Auth inspecteur with MangoDB
+     Service.loginAdmin(this.auth.email, this.auth.password)
+       .then((result) => {
 
 
-                sessionStorage.setItem("token", "ygiiu76764746GHFGHCHGF");
-                sessionStorage.setItem("nom", "Lahcen");
-                sessionStorage.setItem("prenom", "Achraf");
-                sessionStorage.setItem("email", "achraflahcen46@gmail.com");
-                sessionStorage.setItem("status", "admin");
-                sessionStorage.setItem("id","477885736577565465365");
+         if(result.data.msg == true) {
 
-                return this.$router.push("/interface");
-      }
+               sessionStorage.setItem("token", result.data.token);
+               sessionStorage.setItem("nom", result.data.res[0].nom);
+               sessionStorage.setItem("prenom", result.data.res[0].prenom);
+               sessionStorage.setItem("email", result.data.res[0].email);
+               sessionStorage.setItem("status", result.data.res[0].status);
+               sessionStorage.setItem("id",result.data.res[0]._id);
 
-      // Auth inspecteur with MangoDB
-      // Service.loginAdmin(this.auth.email, this.auth.password)
-      //   .then((result) => {
+               return this.$router.push("/interface");
+         }
 
-
-      //     if(result.data.msg == true) {
-
-      //           sessionStorage.setItem("token", result.data.token);
-      //           sessionStorage.setItem("nom", result.data.res[0].nom);
-      //           sessionStorage.setItem("prenom", result.data.res[0].prenom);
-      //           sessionStorage.setItem("email", result.data.res[0].email);
-      //           sessionStorage.setItem("status", result.data.res[0].status);
-      //           sessionStorage.setItem("id",result.data.res[0]._id);
-
-      //           return this.$router.push("/interface");
-      //     }
-
-      //   })
-      //   .catch((error) => {
-      //     console.error(`HTTP error: ${error.name} => ${error.message}`);
-      //     throw "fail request at: GET /refreshtime";
-      //   });
+       })
+       .catch((error) => {
+         console.error(`HTTP error: ${error.name} => ${error.message}`);
+         throw "fail request at: GET /refreshtime";
+       });
     }
   }
 };

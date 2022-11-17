@@ -46,13 +46,13 @@
             </div>
 
             <div class="content-message">
-              <h3>CHAT GTHCONSULT</h3>
+              <h3><i class="fa-regular fa-comments"></i> CHAT GTHCONSULT</h3>
 
               <div class="content">
                 <div v-for="(item, i) in filterChatContent" :key="i">
                   <ul v-for="(element, j) in item.content" :key="j">
-                    <div>
-                      <li><i class="fa-solid fa-user"></i><i class="fa-solid fa-user"></i> {{ element.name }} :</li>
+                    <div class="msguser">
+                      <li class="userMsg"><img src="./../assets/userr.svg" class="onlinee" width="30px" alt="" style="margin-right:5px" > {{ element.name }} </li>
                       <li>{{ element.message }} </li>
                     </div>
                     <div>
@@ -231,34 +231,29 @@ export default {
 <style scoped>
 .admin {
   width: 100%;
+  overflow: hidden;
 }
+.content>div>ul{
+  border-bottom: 1px solid rgb(230, 230, 230);
 
+}
 
 .admin .container .menu-content .content .chat {
-
-  height: calc(100vh - 127px);
-  display: flex;
-  width: 100%;
-  flex-direction: row;
-}
-
-.admin .container .menu-content .content .chat .users {
-  width: 30%;
-  height: 100%;
-  display: flex;
-
-  flex-direction: column;
-  background-color: white;
-
+display: grid;
+grid-template-columns: 30% 70%;
 
 }
+
+
+
+
 
 #app>div>div>div.menu-content>div.content>div.chat>div.users>div.front {
 color:rgb(66, 66, 66);
   text-align: center;
   text-transform: uppercase;
   padding: 10px;
-  font-size: 20px;
+    font-size: 25px;
 
   font-weight: 500;
   border-bottom: 1px solid #ddd;
@@ -266,7 +261,8 @@ color:rgb(66, 66, 66);
 
 #app>div>div>div.menu-content>div.content>div.chat>div.users>div.back {
   overflow-y: auto;
-  height: 100%;
+  max-height: calc(100vh - 128px);
+
 }
 
 
@@ -274,20 +270,22 @@ color:rgb(66, 66, 66);
 
 
 #app>div>div>div.menu-content>div.content>div.chat>div.content-message {
-  width: 70%;
   z-index: 10;
+  width: 100%;
   display: flex;
   height: calc(100vh - 74px);
   flex-direction: column;
-  justify-content: flex-end;
+justify-content: space-between;
 }
 
 #app>div>div>div.menu-content>div.content>div.chat>div.content-message .content {
-  overflow-y: auto;
-  background-color: rgb(247, 247, 247);
+  overflow: auto;
+  background-color: rgb(255, 255, 255);
   z-index: 2000;
-  height: 100%;
+  width: 100%;
+
 }
+
 
 #app>div>div>div.menu-content>div.content>div.chat>div.content-message .message {
   width: 100%;
@@ -296,7 +294,7 @@ color:rgb(66, 66, 66);
   flex-direction: row;
   padding: 16px;
   align-items: center;
-  background-color: #e7e7e7;
+  background-color: #f0f0f0;
   text-align: center;
   position: relative;
   justify-content: flex-end;
@@ -356,10 +354,17 @@ color:rgb(66, 66, 66);
 
 }
 
+
 .btn-send:hover {
 
   background: #cf1f21;
 
+
+}
+
+.msguser{
+  display: flex;
+  align-items: center;
 
 }
 
@@ -384,6 +389,13 @@ color:rgb(66, 66, 66);
 
 .pictures{
   display: flex;
+}
+
+.userMsg{
+
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
 }
 
 .back ul li {
@@ -441,12 +453,10 @@ background-color: rgb(245, 245, 245);
   margin-left: 10px;
 }
 
-#app>div>div>div.menu-content>div.content>div.chat>div.content-message>div.content>div>ul>div:nth-child(2) {
-  margin-bottom: 30px;
-}
+
 
 #app>div>div>div.menu-content>div.content>div.chat>div.content-message>div.content>div>ul>div:nth-child(1)>li:nth-child(1) {
-  color: red;
+  color: #243064;
   font-size: 18px;
   font-weight: bold;
 }
@@ -456,31 +466,34 @@ background-color: rgb(245, 245, 245);
 }
 
 #app>div>div>div.menu-content>div.content>div.chat>div.content-message>div.content>div>ul>div:nth-child(1)>li:nth-child(2) {
-  padding-left: 10px;
+  color:rgb(53, 53, 53);
+  margin-left: 10px;
+
 }
 
 #app>div>div>div.menu-content>div.content>div.chat>div.content-message>div.content>div>ul>div:nth-child(2)>li:nth-child(1) {
   color: #575764ab;
+
 }
 
 
-
-
-
-
-
-h3 {
+h3{
   width: 100%;
 
 
+  background-image: linear-gradient(45deg, #243064, #cf1f21);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
 
-  color: white;
-  background: linear-gradient(346deg, rgba(207, 31, 33, 1) 0%, rgba(24, 86, 161, 1) 100%);
-  text-align: center;
+background-color: rgb(241, 241, 241);
+
+  border-bottom: 2px solid #ffa4a4;
   text-align: center;
   padding: 10px;
+    font-size: 25px;
 
-  font-size: 25px;
-  border-radius: 20px;
 }
 </style>

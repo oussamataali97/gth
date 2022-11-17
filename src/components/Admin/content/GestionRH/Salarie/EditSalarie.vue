@@ -419,8 +419,17 @@ export default {
 }
 
 #app > div > div > div.menu-content > div.content > div > h3 {
-    background-color: #ff0000d4;
-    padding: 15px;
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin:0;
+
+    color: white;
+    background: linear-gradient(346deg, rgba(207,31,33,1) 0%, rgba(24,86,161,1) 100%);    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 25px;
 }
 
 </style>

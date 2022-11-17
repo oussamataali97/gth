@@ -1,7 +1,6 @@
 <template>
   <div class="Intranet">
 
-
     <header style=" display: flex; justify-content:space-between; align-items:center; padding:0 20px; ">
     <div class="logo" @click="accueille()">
             <img src="./../assets/logo.png" alt="" style="width: 150px; cursor: pointer;">

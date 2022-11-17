@@ -63,7 +63,7 @@
               <input type="submit" value="Supprimer tout" @click="deleteAbsences()">
             </div>
 
-      </div> 
+      </div>
 
 
 
@@ -77,7 +77,7 @@ import Service from "../../../../../Service";
 export default {
   name: "gestionEtalonage",
   components: {
-    
+
   },
 
   data() {
@@ -95,8 +95,8 @@ export default {
             return this.absence.filter((item) => {
               if(!this.rechercher)
               {
-                return item         
-              } 
+                return item
+              }
                 return !item.nom.toLowerCase().toString().indexOf(this.rechercher.toLowerCase().toString()) ||
                 !item.prenom.toLowerCase().toString().indexOf(this.rechercher.toLowerCase().toString()) ||
                 !item.cin.toLowerCase().toString().indexOf(this.rechercher.toString()) ||
@@ -130,23 +130,23 @@ export default {
 
         //   //    //  delete in db backend
         //   Service.deleteSalarie(this.checkedSalaries)
-        //     .then((response) => { 
-        //           console.log(response);    
+        //     .then((response) => {
+        //           console.log(response);
         //     })
         //     .catch((error) => {
         //           this.msg = error.message;
         //           console.error(`HTTP error: ${error.name} => ${error.message}`);
         //           throw "fail request at: GET /refreshtime";
         //     });
-   
+
     },
 
     // delete one Salarie
     deleteAbsence(i,id, adminId, filename) {
       this.absence.splice(i, 1);
       Service.deleteAbsence(id, adminId, filename)
-      .then((result) => { 
-            console.log(result)       
+      .then((result) => {
+            console.log(result)
       })
       .catch((error) => {
             this.msg = error.message;
@@ -158,8 +158,8 @@ export default {
     // valide Absence
     valideAbsence(id, adminId, i) {
       Service.valideAbsence(id, adminId)
-      .then(() => { 
-            this.absence[i].status = true;       
+      .then(() => {
+            this.absence[i].status = true;
       })
       .catch((error) => {
             this.msg = error.message;
@@ -171,8 +171,8 @@ export default {
     // invalide Absence
     invalideAbsence(id, adminId, i) {
       Service.invalideAbsence(id, adminId)
-      .then(() => { 
-            this.absence[i].status = false;       
+      .then(() => {
+            this.absence[i].status = false;
       })
       .catch((error) => {
             this.msg = error.message;
@@ -187,7 +187,7 @@ export default {
 
   created() {
       Service.readConges()
-      .then((result) => { 
+      .then((result) => {
         if(result.data.data != null) {
             result.data.data.forEach(element => {
                     this.absence.push(element);
@@ -218,7 +218,7 @@ export default {
   color: white;
   padding: 10px;
   height: fit-content;
-  width: 100%; 
+  width: 100%;
 }
 
 .gestionInspecteur {
@@ -315,14 +315,14 @@ export default {
 
 .gestionInspecteur .rechercher-table ul li {
   color:black;
- margin-left: 5px; 
+ margin-left: 5px;
  cursor: pointer;
  font-size: 18px;
 }
 .gestionInspecteur .rechercher-table ul li:hover {
   color:red;
  margin-left: 5px;
- transition: 0.3s; 
+ transition: 0.3s;
 }
 
 
@@ -361,8 +361,17 @@ export default {
 }
 
 #app > div > div > div.menu-content > div.content > div > h3 {
-    background-color: #ff0000d4;
-    padding: 15px;
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin:0;
+
+    color: white;
+    background: linear-gradient(346deg, rgba(207,31,33,1) 0%, rgba(24,86,161,1) 100%);    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 25px;
 }
 
 #app > div > div > div.menu-content > div.content {

@@ -498,11 +498,12 @@ grid-template-columns: 20% 80%;
 
 .admin .container .menu-content menu {
 width: 20%;
+
 }
 
 .admin .container .menu-content .content {
   width: 100%;
-  background:rgb(231, 107, 107);
+  background:rgb(231, 107, 107) !important;
 }
 
 </style>

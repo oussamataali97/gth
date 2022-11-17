@@ -54,7 +54,7 @@
               <input type="submit" value="Supprimer tout" @click="deleteInterlocuteurs()">
             </div>
 
-      </div> 
+      </div>
 
 
 
@@ -95,8 +95,8 @@ export default {
             return this.interlocuteurs.filter((item) => {
               if(!this.rechercher)
               {
-                return item         
-              } 
+                return item
+              }
                 return !item.nom.toLowerCase().toString().indexOf(this.rechercher.toLowerCase().toString()) ||
                 !item.prenom.toLowerCase().toString().indexOf(this.rechercher.toLowerCase().toString()) ||
                 !item.telephone.toString().indexOf(this.rechercher.toString()) ||
@@ -119,7 +119,7 @@ export default {
 
     },
 
-    
+
     valideInterlocuteur(interlocuteurId, index) {
 
         Service.ValideInterlocuteur(interlocuteurId)
@@ -145,15 +145,15 @@ export default {
 
           //    //  delete in db backend
           Service.deleteInterlocuteur(this.checkedInterlocuteurs)
-              .then((response) => { 
-                  console.log(response);    
+              .then((response) => {
+                  console.log(response);
               })
               .catch((error) => {
                   this.msg = error.message;
                   console.error(`HTTP error: ${error.name} => ${error.message}`);
                   throw "fail request at: GET /refreshtime";
               });
-   
+
     },
 
     // delete one client
@@ -161,9 +161,9 @@ export default {
       const idInterlocuteur = this.interlocuteurs[i]._id;
       this.interlocuteurs.splice(i, 1);
       Service.deleteInterlocuteur(idInterlocuteur)
-      .then((result) => { 
+      .then((result) => {
 
-        this.msg = result.data.msg;        
+        this.msg = result.data.msg;
       })
       .catch((error) => {
           this.msg = error.message;
@@ -176,7 +176,7 @@ export default {
     async editInterlocuteur (i) {
       this.clientId = await this.interlocuteurs[i].clientId;
       Service.selectClient(this.clientId)
-        .then(async (result) => { 
+        .then(async (result) => {
           this.raisonSocial = await result.data.client.raisonSocial;
           this.infoInterlocuteur.push(this.interlocuteurs[i])
           this.flagEditInterlocuteur = true;
@@ -186,7 +186,7 @@ export default {
             console.error(`HTTP error: ${error.name} => ${error.message}`);
             throw "fail request at: GET /refreshtime";
         });
-      
+
     },
 
     // edit one client
@@ -200,7 +200,7 @@ export default {
         })
         .catch((error) => {
             console.log(error);
-        });     
+        });
     },
 
 
@@ -209,8 +209,8 @@ export default {
   created() {
 
       Service.readInterlocuteur()
-      .then((result) => {    
-        this.interlocuteurs = result.data.interlocuteurs; 
+      .then((result) => {
+        this.interlocuteurs = result.data.interlocuteurs;
       })
       .catch((error) => {
           this.msg = error.message;
@@ -248,7 +248,7 @@ export default {
   color: white;
   padding: 10px;
   height: fit-content;
-  width: 100%; 
+  width: 100%;
 }
 
 .gestionInspecteur {
@@ -345,14 +345,14 @@ export default {
 
 .gestionInspecteur .rechercher-table ul li {
   color:black;
- margin-left: 5px; 
+ margin-left: 5px;
  cursor: pointer;
  font-size: 18px;
 }
 .gestionInspecteur .rechercher-table ul li:hover {
   color:red;
  margin-left: 5px;
- transition: 0.3s; 
+ transition: 0.3s;
 }
 
 
@@ -391,8 +391,17 @@ export default {
 }
 
 #app > div > div > div.menu-content > div.content > div > h3 {
-    background-color: #ff0000d4;
-    padding: 15px;
+    width: 100%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    margin:0;
+
+    color: white;
+    background: linear-gradient(346deg, rgba(207,31,33,1) 0%, rgba(24,86,161,1) 100%);    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 25px;
 }
 
 #app > div > div > div.menu-content > div.content {
