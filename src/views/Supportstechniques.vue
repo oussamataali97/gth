@@ -421,6 +421,10 @@ background-color:
   transform: rotate(0deg);
 }
 
+.fa-circle-exclamation{
+  color:red !important;
+}
+
 .admin .container .menu-content .content .info .front h2 {
   text-align: center;
   font-size: 50px;
@@ -691,6 +695,12 @@ svg{
   position: absolute;
   top:9px;
   right: 25%;
+
+}
+
+.text , .text2{
+  max-width: 1200px;
+  margin:10px auto;
 
 }
 </style>

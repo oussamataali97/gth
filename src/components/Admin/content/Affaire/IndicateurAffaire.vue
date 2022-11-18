@@ -362,6 +362,8 @@ export default {
 p:nth-child(3),
 p:nth-child(4) {
   padding: 5px;
+  color:#e6272a;
+  font-weight: 500;
 }
 
 
@@ -371,7 +373,7 @@ p:nth-child(4) {
 
 legend {
   font-weight: bold;
-  color: #3d3d3d;
+  color: #243064;
 }
 
 .statstique div ul {
@@ -384,6 +386,8 @@ legend {
   background-color: rgb(245, 245, 245);
   margin: 5px;
   padding: 0 4px;
+  color:red;
+  font-weight: 500;
   border-radius: 20px;
 }
 
@@ -412,7 +416,7 @@ legend {
 
 div p span {
   font-weight: bold;
-  color:#3d3d3d;
+  color:#243064;
 }
 
 
@@ -431,6 +435,6 @@ fieldset {
 }
 
 svg {
-  color: rgb(75, 75, 75);
+  color: #243064;
 }
 </style>

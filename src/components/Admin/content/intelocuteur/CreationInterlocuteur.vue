@@ -107,7 +107,7 @@ export default {
       Service.createInterlocuteur(this.interlocuteur)
       .then((response) => {
           this.traitement = true;
-          this.msgInterlocuteur = "Veuillez patienter quelques secondes pour enregistre L' interlocuteur";
+          this.msgInterlocuteur = "La Creation d'interlocuteur est en cours , Veuillez Patientez Un peu ..";
           if(response) {
               setTimeout(() => {
                   return this.$router.go(this.$router.currentRoute);
@@ -241,11 +241,16 @@ export default {
 .traitement{
     height: fit-content;
     background-color: #f3f3f3;
-    width: 100%;
+    width: 98%;
+    margin:10px auto;
     display: flex;
+    border-radius: 20px;
     flex-direction: row;
+    padding:0 30px;
     justify-content: flex-start;
     align-items: center;
+
+
 }
 
 #app > div > div > div.menu-content > div.content > div {

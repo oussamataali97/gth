@@ -283,6 +283,7 @@ justify-content: space-between;
   background-color: rgb(255, 255, 255);
   z-index: 2000;
   width: 100%;
+  border-left: 2px solid #dadada;
 
 }
 
@@ -365,6 +366,7 @@ justify-content: space-between;
 .msguser{
   display: flex;
   align-items: center;
+
 
 }
 

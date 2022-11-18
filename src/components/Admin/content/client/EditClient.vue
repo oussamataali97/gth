@@ -147,24 +147,16 @@ export default {
 </script>
 
 <style scoped>
-.creationClient {
-  width: 100%;
-  height: 100%;
-  margin: 0px;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-
 .creationClient h3 {
-  width: 100%;
-  height: fit-content;
-  padding: 5px;
+  width: 98%;
+  margin:auto;
   color: white;
-  background-color: #243064;
+  background: linear-gradient(346deg, rgba(207,31,33,1) 0%, rgba(24,86,161,1) 100%);    text-align: center;
   text-align: center;
+  border-radius: 20px;
+  padding: 15px ;
+
+
 
 }
 .succes {
@@ -184,11 +176,12 @@ export default {
 }
 
 .formCreation {
-
+  padding:20px 0;
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+
+  justify-content: space-around;
   flex-wrap: wrap;
 
 }
@@ -203,7 +196,8 @@ export default {
   margin-left:10px;
   margin-bottom: 5px;
   font-size: 14px;
-  color :#243064;
+  font-weight: 700;
+  color :#494949;
 }
 .formCreation div input {
   height: 40px;
@@ -216,6 +210,13 @@ export default {
   border:0;
 
 }
+
+.formCreation div input:focus-within {
+  outline: 1px solid #cf1f21 ;
+  border:0;
+
+}
+
 
 .formCreation div select {
   height: 40px;
@@ -236,6 +237,27 @@ export default {
     margin-top: 30px;
     cursor: pointer;
 }
+
+.traitement{
+    height: fit-content;
+    background-color: #f3f3f3;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+#app > div > div > div.menu-content > div.content > div {
+  background-color: white;
+}
+
+
+
+#app > div > div > div.menu-content > div.content > div > div > div > label {
+  font-size: 15px;
+}
+
 
 
 </style>

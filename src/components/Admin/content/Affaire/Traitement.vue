@@ -51,7 +51,7 @@ export default {
   border: 8px solid #fff;
   border-radius: 50%;
   animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-  border-color: #243064 transparent transparent transparent;
+  border-color: #cf1f21 transparent transparent transparent;
 }
 .lds-ring div:nth-child(1) {
   animation-delay: -0.45s;
@@ -76,7 +76,7 @@ export default {
     margin-left: 10px;
 }
 .traitement .message p  {
-    color: #243064;
+    color: black;
     font-size: 20px;
 }
 

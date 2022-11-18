@@ -12,7 +12,7 @@
           <h3>Calendrier - Programmes</h3>
 
           <div class="info">
-            <div>
+            <div class="searchBox">
 
               <label for="nom">Mois: </label>
               <select v-model="mois" @change="selectMois">
@@ -28,7 +28,7 @@
                 <option v-for="index in inspecteurs" :key="index._id" :value="index._id"> {{ index.nom + " " + index.prenom
                 }} </option>
               </select>
-              <button @click="telechargerAgendaWord()">Telcherger Agenda Word</button>
+              <button @click="telechargerAgendaWord()"><i class="fa-solid fa-download"></i> Telcherger Agenda Word</button>
 
 
             </div>
@@ -171,15 +171,14 @@
                 style="background-color :#ddd; border: 1px solid white;">
 
                 <div class="dayJour">
-                  <p> {{ i + 1 }} </p>
+                  <p > {{ i + 1 }} </p>
                 </div>
 
                 <div class="infoInspecteur" v-for="(val, j) in index" :key="j">
                   <div v-for="(item, ind) in index" :key="ind">
                     <div v-for="(value, j) in item.names" :key="j">
-                      <p @click="showModal(item.annee, item.mois, item.number, item.inspecteur[j])">{{ value }} <i
+                      <p  @click="showModal(item.annee, item.mois, item.number, item.inspecteur[j])">{{ value }} <i
                           class="fa-solid fa-eye"></i></p>
-                      <Modal v-show="isModalVisible" @close="closeModal()" />
                     </div>
                   </div>
                 </div>
@@ -188,13 +187,13 @@
               <div class="info" v-if="index[0].jour != 'samedi' && index[0].jour != 'dimanche'">
 
                 <div class="dayJour">
-                  <p> {{ i + 1 }} </p>
+                  <p > {{ i + 1 }} </p>
                 </div>
 
                 <div class="infoInspecteur" v-for="(val, j) in index" :key="j">
                   <div v-for="(item, index) in index" :key="index">
                     <div v-for="(value, j) in item.names" :key="j">
-                      <p @click="showModal(item.annee, item.mois, item.number, item.inspecteur[j])">{{ value }} <i
+                      <p  @click="showModal(item.annee, item.mois, item.number, item.inspecteur[j])">{{ value }} <i
                           class="fa-solid fa-eye"></i></p>
                       <Modal v-show="isModalVisible" @close="closeModal()" :calendriers=calendriers />
                     </div>
@@ -873,38 +872,14 @@ export default {
 <style scoped>
 .admin {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
 }
 
-.admin .container {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-}
+
 
 .admin .container .header {
   width: 100%;
-
-  padding: 0px;
-  margin: 0px;
-  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }
 
-.admin .container .menu-content {
-  padding: 0px;
-  margin: 0px;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-}
 
 .admin .container .menu-content .content {
   width: 100%;
@@ -913,17 +888,17 @@ export default {
 
 .admin .container .menu-content .content .info {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
+
+
+  overflow: auto;
+  max-height: 150px;
 }
 
 .info>div {
-  height: 40px;
-  margin-top: 20px;
+
   display: flex;
   flex-direction: row;
-  margin-bottom: 20px;
+  margin-bottom: 2px;
   justify-content: center;
   align-items: center;
 }
@@ -938,6 +913,7 @@ export default {
   color: #0e6e01;
   border-radius: 5px;
   cursor: pointer;
+  border-radius: 20px;
   height: 40px;
 }
 
@@ -957,11 +933,7 @@ padding:10px;
 .listdays {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-
-
-
   width: 100%;
-
   padding: 0;
   margin: 0;
   border: 0;
@@ -990,6 +962,7 @@ padding:10px;
   justify-content: center;
   align-items: center;
   height: 60px;
+  border-right: 1px solid white;
   font-size: x-large;
   font-weight: bold;
 
@@ -1011,17 +984,17 @@ padding:10px;
 .list {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: 1fr;
+
   flex-wrap: nowrap;
   width: 100%;
-  height: auto;
+
   padding: 0;
   margin: 0;
   border: 0;
 }
 
 .list>div.item {
-  height: 100%;
+  min-height: 150px;
   width: 100%;
   padding: 0px;
   margin: 0px;
@@ -1058,6 +1031,15 @@ padding:10px;
 
 .list>div.item>div>div.dayJour>p {
   margin-left: 5px;
+  margin-top:5px;
+  font-weight: 500;
+  background-color: #cacaca;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
 }
 
 .list>div.item>div.info>div.infoMission {
@@ -1066,6 +1048,8 @@ padding:10px;
 
 .list>div.item>div.info>div.infoMission>div {
   padding-left: 10px;
+
+
 }
 
 .list>div.item>div.info>div.infoMission>div>div.mission>p {
@@ -1144,51 +1128,58 @@ padding:10px;
 
 .list>div>div>div.infoInspecteur>div>div:nth-child(1)>p {
   background-color: red;
-  padding: 8px;
-  border-radius: 6px;
-  font-size: unset;
+  padding: 2px 5px;
+  border-radius: 20px;
+  margin:5px 0;
+
 }
 
 .list>div>div>div.infoInspecteur>div>div:nth-child(2)>p {
   background-color: green;
-  padding: 8px;
-  border-radius: 6px;
-  font-size: unset;
+  padding: 2px 5px;
+  border-radius: 20px;
+  margin:5px 0;
+
 }
 
 .list>div>div>div.infoInspecteur>div>div:nth-child(3)>p {
   background-color: yellow;
-  padding: 8px;
-  border-radius: 6px;
-  font-size: unset;
+  padding: 2px 5px;
+  border-radius: 20px;
+  margin:5px 0;
+
 }
 
 .list>div>div>div.infoInspecteur>div>div:nth-child(4)>p {
   background-color: blue;
-  padding: 8px;
-  border-radius: 6px;
-  font-size: unset;
+  padding: 2px 5px;
+  border-radius: 20px;
+  margin:5px 0;
+
 }
 
 .list>div>div>div.infoInspecteur>div>div:nth-child(5)>p {
   background-color: rgb(255, 0, 149);
-  padding: 8px;
-  border-radius: 6px;
-  font-size: unset;
+  padding: 2px 5px;
+  border-radius: 20px;
+  margin:5px 0;
+
 }
 
 .list>div>div>div.infoInspecteur>div>div:nth-child(6)>p {
   background-color: rgb(51, 255, 0);
-  padding: 8px;
-  border-radius: 6px;
-  font-size: unset;
+  padding: 2px 5px;
+  border-radius: 20px;
+  margin:5px 0;
+
 }
 
 .list>div>div>div.infoInspecteur>div>div:nth-child(7)>p {
   background-color: rgb(0, 255, 234);
-  padding: 8px;
-  border-radius: 6px;
-  font-size: unset;
+  padding: 2px 5px;
+  border-radius: 20px;
+  margin:5px 0;
+
 }
 
 h3 {
@@ -1203,5 +1194,9 @@ h3 {
   margin-bottom: 10px;
   padding: 10px;
   font-size: 25px;
+}
+
+.searchBox{
+  margin:10px 0 !important;
 }
 </style>

@@ -5,7 +5,7 @@
 
       <header class="modal-header">
         <slot name="header">
-          liste des mission
+          liste des missions
         </slot>
         <button type="button" class="btn-close" @click="close">
           x
@@ -16,14 +16,13 @@
         <slot name="body">
           <ul v-for="(item, index) in calendriers" :key="index">
                 <li>Mission N° : {{ index + 1 }}</li>
-                <li><i class="fa-solid fa-clipboard"></i>{{ item.titre }}</li>
-                <li><i class="fa-solid fa-building"></i>{{ item.client }}</li>
-                <li><i class="fa-solid fa-location-dot"></i>{{ item.lieu }}</li>
-                <li>Date de mission : {{ new Date(item.date).toLocaleDateString() }}</li>
-                <li><i class="fa-sharp fa-solid fa-clock"></i>Horaire : {{ item.horaire[0].start +" - "+ item.horaire[0].fin  }}</li>
-                <li v-show="item.valider == true">Mission accordée</li>
-                <li v-show="item.valider == false">Mission non accordée</li>
-                <li>-----------------------------------</li>
+                <li><i class="fa-solid fa-clipboard"></i> {{ item.titre }}</li>
+                <li><i class="fa-solid fa-building"></i> {{ item.client }}</li>
+                <li><i class="fa-solid fa-location-dot"></i> {{ item.lieu }}</li>
+                <li><i class="fa-solid fa-calendar-days"></i> {{ new Date(item.date).toLocaleDateString() }}</li>
+                <li><i class="fa-sharp fa-solid fa-clock"></i> {{ item.horaire[0].start +" - "+ item.horaire[0].fin  }}</li>
+                <p class="valider" v-show="item.valider == true"> <i class="fa-regular fa-circle-check"></i> Mission accordée</p>
+                <p class="nonvalider" v-show="item.valider == false"><i class="fa-regular fa-circle-xmark"></i> Mission non accordée</p>
           </ul>
         </slot>
        </section>
@@ -65,15 +64,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
   }
 
   .modal {
     background: #FFFFFF;
-    box-shadow: 2px 2px 20px 1px;
-    overflow-x: auto;
-    display: flex;
-    flex-direction: column;
-    width: 600px;
+    min-width: 500px;
+    max-width: 600px;
+    max-height: 400px;
+    overflow: auto;
   }
 
   .modal-header,
@@ -85,8 +84,12 @@
   .modal-header {
     position: relative;
     border-bottom: 1px solid #eeeeee;
-    color: #3418b3;
-    justify-content: space-between;
+    color: #fd0d0d;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 700;
+    justify-content: center;
+    text-transform: capitalize;
   }
 
   .modal-footer {
@@ -99,9 +102,12 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 20px 10px;
+    padding: 0px 30px;
+
+  }
+
+  .fa-circle-xmark{
+    color: red !important;
   }
 
   .modal-body > ul {
@@ -109,6 +115,20 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    border-bottom:2px dashed #241868;
+    padding: 5px 10px;
+
+  }
+
+  .modal-body > ul > li{
+    text-align: left;
+    padding: 5px 0;
+    width: 100%;
+    border-bottom: 1px solid rgb(228, 228, 228);
+    color:rgb(48, 48, 48);
+    font-weight: 500;
+    font-size: 18px;
+    text-transform: capitalize;
   }
 
   .modal-body > ul > li:nth-child(1) {
@@ -119,9 +139,13 @@
     color: green;
   }
 
-  .modal-body > ul > li:nth-child(8) {
-    color: red;
+  .modal-body > ul svg {
+    color:#243064;
+    font-size: 20px;
+    margin-right:10px;
   }
+
+
 
   .btn-close {
     position: absolute;
@@ -135,6 +159,8 @@
     color: #4AAE9B;
     background: transparent;
   }
+
+
 
   .btn-green {
     color: white;
@@ -152,9 +178,21 @@
     opacity: 0;
   }
 
+  .fa-circle-check{
+    color:green !important;
+  }
+
   .modal-fade-enter-active,
   .modal-fade-leave-active {
     transition: opacity .5s ease;
+  }
+
+  .valider{
+    color: green !important;
+  }
+
+  .nonvalider{
+    color: red !important;
   }
 
 </style>

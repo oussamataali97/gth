@@ -566,34 +566,38 @@ destory() {
 #app > div > div > div.menu-content > div.content > div.list > table > tbody > tr > th:nth-child(8) > div > input[type=button]:nth-child(2) {
   padding: 10px 13px;
     margin:10px;
-    width: -webkit-fill-available;
-    height: 40px;
+    border-radius: 20px;
     border: 0px;
     border-bottom: 1px solid #24306433;
     outline: 0px;
     color: white;
-    background-color: #ff0f07;
+    background-color: red;
     cursor: pointer;
     font-size: small;
 }
 
 #app > div > div > div.menu-content > div.content > div.list > table > tbody > tr > th:nth-child(8) > div > input[type=button]:nth-child(3) {
-    padding: 0px;
-    margin-bottom: 5px;
-    width: -webkit-fill-available;
-    height: 40px;
+  padding: 10px 0px;
+    margin:10px;
+
     border: 0px;
     border-bottom: 1px solid #24306433;
     outline: 0px;
-    color: rgb(1, 116, 35);
-    background-color: white;
+    color: green;
+
     cursor: pointer;
     font-size: small;
 }
 
 #app > div > div > div.menu-content > div.content > div.list > table > tbody > tr > th:nth-child(9) > div > li:nth-child(1) > svg {
     color: rgb(1, 116, 35);
+    padding: 10px 13px;
+    cursor: pointer;
+    margin:10px;
+
 }
+
+
 
 #app > div > div > div.menu-content > div.content > div.list > table > tbody > tr > th:nth-child(9) > div > li {
     display: flex;
@@ -606,6 +610,9 @@ destory() {
 
 #app > div > div > div.menu-content > div.content > div.list > table > tbody > tr > th:nth-child(9) > div > li:nth-child(2) > svg {
     color: red;
+    padding: 10px 13px;
+    cursor: pointer;
+    margin:10px;
 }
 
 
