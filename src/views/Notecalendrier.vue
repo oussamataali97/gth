@@ -94,7 +94,7 @@
                       <input type="button" v-if="val.valider == false && matricule == val.inspecteur[0].name"
                         value="Valider Mission" @click="valider(val, i, j, index)">
                       <p v-if="val.valider == true"><i class="fa-solid fa-check"></i>Mission confirmée </p>
-                      <p type="button" v-if="val.valider == true">{{ val._id }}</p>
+                      <p type="button" class="parag" v-if="val.valider == true">{{ val._id }}</p>
                     </div>
 
                   </div>
@@ -141,7 +141,7 @@
                       <input type="button" v-if="val.valider == false && matricule == val.inspecteur[0].name"
                         value="Valider Mission" @click="valider(val, i, j, index)">
                       <p v-if="val.valider == true"><i class="fa-solid fa-check"></i>Mission confirmée </p>
-                      <p type="button" v-if="val.valider == true">{{ val._id }}</p>
+                      <p type="button" class="parag" v-if="val.valider == true">{{ val._id }}</p>
                     </div>
 
                   </div>
@@ -894,14 +894,6 @@ export default {
   max-height: 150px;
 }
 
-.info>div {
-
-  display: flex;
-  flex-direction: row;
-  margin-bottom: 2px;
-  justify-content: center;
-  align-items: center;
-}
 
 
 #app>div>div>div.menu-content>div.content>div.info>div>button {
@@ -1054,7 +1046,7 @@ padding:10px;
 
 .list>div.item>div.info>div.infoMission>div>div.mission>p {
   color: blue;
-  font-size: larger;
+
   font-weight: 700;
 }
 
@@ -1078,13 +1070,11 @@ padding:10px;
   margin-bottom: 4px;
   padding-left: 10px;
   color: #18762c;
-  font-size: larger;
+
   font-weight: 400;
 }
 
-.list>div.item>div.info>div.infoMission>div>div.client>li>svg {
-  font-size: larger;
-}
+
 
 .list>div.item>div.info>div.infoMission>div>div.horaire {
   display: flex;
@@ -1110,7 +1100,6 @@ padding:10px;
   margin-top: 5px;
   margin-bottom: 5px;
   color: rgb(0 0 0 / 61%);
-  font-size: larger;
 }
 
 .list>div.item>div.info>div.infoMission>div>div.verfication>p:nth-child(2) {
@@ -1197,6 +1186,17 @@ h3 {
 }
 
 .searchBox{
-  margin:10px 0 !important;
+  margin:10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.parag {
+  color:rgb(182, 41, 65) !important;
+  word-break: break-all;
+  white-space: normal;
+}
+
+
 </style>
