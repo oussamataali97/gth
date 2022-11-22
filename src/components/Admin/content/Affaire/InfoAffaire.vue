@@ -131,7 +131,7 @@
     </div>
 
     <h3  class="titre-interlocuteur">Mission : </h3>
-      <div class="formCreation" v-for="(mission) in missions" :key="mission._id">
+      <div class="formCreation missionsec" v-for="(mission) in missions" :key="mission._id">
             <div>
               <label for="Numéro d'affaire">Type de Mission</label>
               <input type="text" disabled :value="mission.typeMission">
@@ -250,6 +250,7 @@ export default {
 <style scoped>
 
 
+
 .creationClient {
   width: 100%;
   height: 100%;
@@ -262,12 +263,13 @@ export default {
 }
 
 .creationClient h3:nth-child(1) {
-  width: 100%;
-  height: fit-content;
-  padding: 5px;
+  width: 98%;
+  margin:5px 0;
   color: white;
-  background-color: #243064;
+  background: linear-gradient(346deg, rgba(207,31,33,1) 0%, rgba(24,86,161,1) 100%);    text-align: center;
   text-align: center;
+  border-radius: 20px;
+  padding: 15px;
 
 }
 .creationClient .titre-client {
@@ -303,11 +305,12 @@ export default {
 }
 
 .formCreation {
-
+  padding:20px 0;
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+
+  justify-content: space-between;
   flex-wrap: wrap;
 
 }
@@ -316,13 +319,14 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 45%;
+  width: 48%;
 }
 .formCreation div label {
   margin-left:10px;
   margin-bottom: 5px;
   font-size: 14px;
-  color :#243064;
+  font-weight: 700;
+  color :#494949;
 }
 .formCreation div input {
   height: 40px;
@@ -336,30 +340,20 @@ export default {
 
 }
 
+.formCreation div input:focus-within {
+  outline: 1px solid #cf1f21 ;
+  border:0;
+
+}
+
+
 .formCreation div select {
   height: 40px;
   margin-left:10px;
 }
 
-hr {
-  width: 100%;
-  background-color: black;
-  height: 10px;
-}
-.enregitreAffaire {
-  background-color: green;
-  color: white;
-  cursor: pointer;
-}
-.file {
-  background-color: white;
-  color: black;
-  cursor: pointer;
-}
-.file button{
-  background-color: white;
-  color: black;
-  cursor: pointer;
+.missionsec{
+  border-bottom: 2px dashed rgb(194, 11, 11);
 }
 
 .traitement{
@@ -373,37 +367,8 @@ hr {
 }
 
 
-#app > div > div > div.menu-content > div.content > div > div:nth-child(9) > div > input.enregitreAffaire {
-  font-weight: bold;
-  border: 0;
-  border-radius: 10px;
-  font-size: 18px;
-}
 
-#app > div > div > div.menu-content > div.content > div > div > div > div.equipement {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
 
-}
-
-#app > div > div > div.menu-content > div.content > div > div > div > div.equipement > div:nth-child(1) {
-  width: 70%;
-}
-
-#app > div > div > div.menu-content > div.content > div > div > div > div.equipement > div:nth-child(1) input {
-  width: 100%;
-}
-
-#app > div > div > div.menu-content > div.content > div > div > div > div.equipement > div:nth-child(2) {
-  width: 20%;
-}
-#app > div > div > div.menu-content > div.content > div > div > div > div.equipement > div:nth-child(2) input {
-  width: 100%;
-}
 
 
 

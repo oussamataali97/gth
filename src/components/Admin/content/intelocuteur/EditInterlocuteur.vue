@@ -178,11 +178,13 @@ export default {
 
 .creationClient h3 {
   width: 100%;
-  height: fit-content;
-  padding: 5px;
+  margin:auto;
   color: white;
-  background-color: #243064;
+  background: linear-gradient(346deg, rgba(207,31,33,1) 0%, rgba(24,86,161,1) 100%);    text-align: center;
   text-align: center;
+  border-radius: 20px;
+  padding: 15px;
+
 
 }
 .succes {
@@ -201,12 +203,14 @@ export default {
   height: fit-content;
 }
 
-.formCreation {
 
+.formCreation {
+  padding:20px 0;
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+
+  justify-content: space-BETWEEN;
   flex-wrap: wrap;
 
 }
@@ -215,13 +219,14 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 45%;
+  width: 48%;
 }
 .formCreation div label {
   margin-left:10px;
   margin-bottom: 5px;
   font-size: 14px;
-  color :#243064;
+  font-weight: 700;
+  color :#494949;
 }
 .formCreation div input {
   height: 40px;
@@ -240,15 +245,14 @@ export default {
   margin-left:10px;
 }
 
-#app > div > div > div.menu-content > div.content > div > div > div > div:nth-child(9) > input[type=submit] {
+.formCreation div:nth-child(9) input{
     background-color: green;
     color: white;
     border: 0;
     margin-top: 30px;
     cursor: pointer;
 }
-
-#app > div > div > div.menu-content > div.content > div > div > div > div:nth-child(10) > input[type=submit] {
+.formCreation div:nth-child(10) input {
     background-color: red;
     color: white;
     border: 0;

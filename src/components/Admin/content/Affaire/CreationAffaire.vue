@@ -136,18 +136,19 @@
     <h3  class="titre-interlocuteur" v-if="countChikedMission >= 1"> Importez Devis : </h3>
 
     <p v-if="flagEchecMessageAffaire" :class="{ echec: echec }">
-        {{ msgAffaire }}
+      <i class="fa-solid fa-triangle-exclamation"></i> {{ msgAffaire }}
     </p>
 
     <Traitement :msg="msgAffaire" v-if="traitement == true"/>
 
     <div class="formCreation" v-if="countChikedMission >= 1">
-        <div style="width :30%;">
+        <div style="width :60%;">
           <label for="Enregistrer">Importez le fichier svp</label>
-          <input type="file" multiple="multiple" class="file" placeholder="Fichier PDF" ref="file" @change="previewFile"/>
+          <input  type="file" multiple="multiple" class="form-control" placeholder="Fichier PDF" ref="file" @change="previewFile"/>
           <label for="enregitre">Cliquez ci-dessous pour enregistre l'affaire</label>
-          <input class="enregitreAffaire" type="submit" value="Enregistrer l'affaire" @click="enregitreAffaire()">
-          <input class="enregitreAffaire" type="submit" value="Annuler L'affaire" @click="annulerAffaire(targetAffaire)">
+
+          <input class="enregitreAffaire1" type="submit" value="Enregistrer l'affaire" @click="enregitreAffaire()">
+          <input class="enregitreAffaire2" type="submit" value="Annuler L'affaire" @click="annulerAffaire(targetAffaire)">
         </div>
     </div>
 
@@ -436,7 +437,7 @@ selectInterlocuteur() {
     height: fit-content;
     padding: 5px;
     color: white;
-    background-color: #243064;
+    background-color: #cf1f21;
 
 }
 .creationClient .titre-interlocuteur {
@@ -444,7 +445,7 @@ selectInterlocuteur() {
     height: fit-content;
     padding: 5px;
     color: white;
-    background-color: #243064;
+    background-color: #cf1f21;
 
 }
 .succes {
@@ -456,19 +457,21 @@ selectInterlocuteur() {
 }
 
 .echec {
-  background-color: RED;
+  background-color: rgb(255, 91, 91);
   color: white;
   padding: 10px;
   width: 100%;
   height: fit-content;
+  margin:10px 0;
 }
 
 .formCreation {
-
+  padding:20px 0;
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+
+  justify-content: space-between;
   flex-wrap: wrap;
 
 }
@@ -477,13 +480,14 @@ selectInterlocuteur() {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  width: 45%;
+  width: 48%;
 }
 .formCreation div label {
   margin-left:10px;
   margin-bottom: 5px;
   font-size: 14px;
-  color :#243064;
+  font-weight: 700;
+  color :#494949;
 }
 .formCreation div input {
   height: 40px;
@@ -497,30 +501,72 @@ selectInterlocuteur() {
 
 }
 
+.formCreation div input:focus-within {
+  outline: 1px solid #cf1f21 ;
+  border:0;
+
+}
+
+
 .formCreation div select {
   height: 40px;
   margin-left:10px;
 }
 
-hr {
-  width: 100%;
-  background-color: black;
-  height: 10px;
+
+
+.form-control {
+    display: block;
+
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
 }
-.enregitreAffaire {
+
+.form-control::-webkit-file-upload-button {
+    padding: 10px;
+    margin: -.375rem -.75rem;
+    -webkit-margin-end: .75rem;
+    margin-inline-end: .75rem;
+    color: rgb(58, 58, 58);
+    font-weight: 600;
+    background-color: #e9e9e9;
+    pointer-events: none;
+    border:0;
+
+    -webkit-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+}
+
+
+
+
+.enregitreAffaire1 {
   background-color: green;
-  color: white;
+  width:50%;
+  border:0 !important;
   cursor: pointer;
+  color:white;
+
 }
-.file {
-  background-color: white;
-  color: black;
+
+.enregitreAffaire2 {
+  background-color: rgb(226, 17, 17);
+  width:50%;
+  border:0 !important;
   cursor: pointer;
-}
-.file button{
-  background-color: white;
-  color: black;
-  cursor: pointer;
+  color:white;
+
 }
 
 .traitement{
@@ -559,8 +605,17 @@ hr {
   background-color: white;
 }
 
+
+
 #app > div > div > div.menu-content > div.content > div > div:nth-child(9) > div > input:nth-child(5) {
+  background-color: green;
+  width:50%;
+
+}
+
+#app > div > div > div.menu-content > div.content > div > div:nth-child(9) > div > input:nth-child(4) {
   background-color: red;
+  width:50%;
 }
 
 

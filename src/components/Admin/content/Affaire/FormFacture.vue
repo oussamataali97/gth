@@ -1,6 +1,6 @@
 <template>
   <div class="all" style="width:100%;">
-    <hr> 
+    <hr>
     <div class="form" v-if="flagMession">
         <div>
             <label for="List des missions">List des missions</label>
@@ -85,7 +85,7 @@
               <input type="text" v-model="mission.equipement[eq - 1]" :disabled ="flagDisabledEquipement">
             </div>
 
-            <div style="width: 15%;">
+            <div style="width:20%">
               <label for="Quantité">Quantité</label>
               <input type="text" v-model="mission.qte[eq - 1]" :disabled ="flagDisabledQuantite">
             </div>
@@ -94,6 +94,19 @@
 
 
 
+        <h4>Equipement Details :</h4>
+        <div>
+          <label for="interlocuteurId"></label>
+          <input type="hidden" >
+        </div>
+        <div>
+          <label for="interlocuteurId"></label>
+          <input type="hidden" >
+        </div>
+        <div>
+          <label for="interlocuteurId"></label>
+          <input type="hidden" >
+        </div>
         <div style="width :30%;">
           <label for="valider"> Valider équipement </label>
           <input class="valide" type="submit" value="valider" @click="valideEquipement()">
@@ -108,7 +121,7 @@
           <label for="Ajouter">Ajouter équipement</label>
           <input class="ajouter" type="submit" value="Ajouter" @click="ajouteEquipement()">
         </div>
-              
+
 
         <div>
           <label for="interlocuteurId"></label>
@@ -119,7 +132,19 @@
           <label for="clientId"></label>
           <input type="hidden" v-model="clientId">
         </div>
-
+        <h4>Missions Details :</h4>
+        <div>
+          <label for="interlocuteurId"></label>
+          <input type="hidden" >
+        </div>
+        <div>
+          <label for="interlocuteurId"></label>
+          <input type="hidden" >
+        </div>
+        <div>
+          <label for="interlocuteurId"></label>
+          <input type="hidden" >
+        </div>
         <div style="width :30%;">
           <label for="valider">Cliquer pour valide cet mission</label>
           <input class="valider" type="submit" value="valider" @click="valideMission()">
@@ -183,7 +208,7 @@ export default {
                   devis:null,
                   autreMission: null,
                   numAffaire: null,
-                  
+
             },
             flagDisabledQuantite : false,
             flagDisabledEquipement : false,
@@ -281,7 +306,7 @@ export default {
                   { prev : "INC-SST" , name : "Sauveteur Secouriste du Travail" ,type : "SST" ,categorie : "Formation reglementaires" },
                   { prev : "INC-PF" , name : "Permis feu" ,type : "Incendie" ,categorie : "Formation reglementaires" },
                   { prev : "INC-SSI1" , name : "Exploitation d’un Système de Sécurité Incendie" ,type : "Incendie" ,categorie : "Formation reglementaires" },
-                
+
                 ],
 
             ArrayTypeMissionE : [
@@ -311,7 +336,7 @@ export default {
 
         this.flagDisabledQuantite = !this.flagDisabledQuantite;
         this.flagDisabledEquipement = !this.flagDisabledEquipement;
-        
+
         const resultQte = this.mission.qte.filter(element => {
                return element !== null;
         });
@@ -370,7 +395,7 @@ export default {
 
         }
 
-        
+
 
 
       },
@@ -402,7 +427,7 @@ export default {
                    clientId : this.clientId,
                    numeroAffaire : this.mission.numAffaire,
                    status : "invalid",
-                   statusWithAffaire : false,  
+                   statusWithAffaire : false,
                    typeRapport :  this.mission.typeRapport,
                    categorie : this.mission.categorie
           };
@@ -410,7 +435,7 @@ export default {
 
 
         this.arrayMission.push(obj);
-        
+
         Service.createMission(this.arrayMission)
         .then((result) => {
             // hiddden form mission
@@ -441,17 +466,17 @@ export default {
         })
         .catch((err) => {
             console.log(err)
-        }); 
+        });
 
       }
 
 
 
-    }, 
+    },
     created() {
       this.mission.numAffaire = this.numAffaire
 
-      // set Data in arra quantite and equipment for 
+      // set Data in arra quantite and equipment for
         this.mission.equipement[0] = null;
         this.mission.qte[0] = null;
     }
@@ -464,69 +489,92 @@ export default {
 <style scoped>
 
 .form {
+  padding:20px 0;
   width: 100%;
-  display :flex;
+  display: flex;
   flex-direction: row;
-  flex-wrap:wrap;
-  justify-content:flex start ;
-  align-items: flex-start;
+
+  justify-content: space-between;
+  flex-wrap: wrap;
+
 }
 
 .form div {
-  width: 45%;
-  display:flex;
+  display: flex;
   flex-direction: column;
-  justify-content:flex-start;
-  margin-left: 10px;
-  align-items: flex-start;
+  justify-content: flex-start;
+  width: 48%;
 }
 
- .form div input {
+
+.formCreation div label {
+  margin-left:10px;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  color :#494949;
+}
+.formCreation div input {
   height: 40px;
+  margin-left:10px;
   margin-bottom: 5px;
   border: 1px solid #243064;
-  width:100%;
+  padding:5px;
+}.formCreation div input:focus-within {
+  outline: 1px solid #cf1f21 ;
+  border:0;
 
 }
- 
-.form div select {
-  height: 40px;
-    width:100%;
 
+.formCreation div input:focus-within {
+  outline: 1px solid #cf1f21 ;
+  border:0;
+
+}
+
+
+.formCreation div select {
+  height: 40px;
+  margin-left:10px;
 }
 
 hr {
   width: 100%;
-  background-color: black;
-  height: 10px;
+  background-color: rgb(190, 190, 190);
+  height: 5px;
+  margin:10px 0;
 }
 
 .ajouter {
-  background-color: rgb(0, 0, 247);
+  background-color: rgb(247, 189, 0);
   color: white;
-  border: 0px;
-  outline: 0px;
+  border: 0 !important;
+
+
   cursor: pointer;
 }
 
-.valider {
+.valider, .valide {
   background-color: green;
   color: white;
-  border: 0px;
-  outline: 0px;
+  border: 0 !important;
   cursor: pointer;
+
+
 }
 .annuler {
   background-color: red;
   color: white;
-  border: 0px;
-  outline: 0px;
+  border: 0 !important;
+
+
   cursor: pointer;
 }
 .apercu {
   background-color: orange;
   color: white;
-  border: 0px;
+  width: 100%;
+  border: 0px !important;
   outline: 0px;
   cursor: pointer;
 }
@@ -546,6 +594,14 @@ hr {
     justify-content: flex-start;
 
 }
+h4{
+  background-color: rgb(75, 75, 75);
+  color:rgb(255, 255, 255);
+  padding:5px 10px;
+
+  margin: 5px;
+  width: 30%;
+}
 
 #app > div > div > div.menu-content > div.content > div > div:nth-child(7) > div.all > div > div.equipement > div:nth-child(1) {
   width: 60%;
@@ -564,5 +620,14 @@ hr {
 }
 #app > div > div > div.menu-content > div.content > div > div:nth-child(7) > div.all > div > div.equipement > div:nth-child(2) > input[type=text] {
   width: 50%;
+}
+
+input[type=submit]:hover{
+background-color: #ffdf29;
+}
+
+input[type=submit]{
+font-size: 18px;
+text-transform: capitalize;
 }
 </style>
