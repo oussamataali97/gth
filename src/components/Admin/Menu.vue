@@ -11,8 +11,8 @@
       </ul>
 
       <ul class="hoverlist">
-        <li @click="$emit('creationClient')"><i class="fa-solid fa-square-plus"></i>Création un client</li>
-        <li @click="$emit('gestionClient')"><i class="fa-solid fa-list"></i>liste Des Clients</li>
+        <li @click="$emit('creationClient')"><i class="fa-solid fa-square-plus"></i> Création un client</li>
+        <li @click="$emit('gestionClient')"><i class="fa-solid fa-list"></i> liste Des Clients</li>
       </ul>
 
     </li>
@@ -298,7 +298,7 @@ export default {
     display: flex;
     flex-direction: row;
     padding: 10px;
-    background: #243064;
+    background: #5e70c4;
     cursor: pointer;
 }
 
@@ -333,7 +333,7 @@ export default {
   font-size: 15px;
   margin-left: 5px;
   color: white;
-  background-color: #cf1f21 ;
+  background-color: #ff4043 ;
   padding: 5px;
   cursor: pointer;
   margin-top: 5px;
@@ -351,7 +351,7 @@ export default {
   font-size: 15px;
   margin-left: 5px;
   color: white;
-  background-color: #cf1f21 ;
+  background-color: #ff4043 ;
   padding: 5px;
   cursor: pointer;
   margin-top: 5px;
@@ -365,10 +365,11 @@ export default {
 .list-menu li ul:not(:nth-child(1)) li:nth-child(3) svg {
   font-size: 15px;
   color: white;
+
 }
 
 .hoverlist li:hover{
-  background-color:rgb(255, 52, 52) !important ;
+  background-color:rgb(202, 29, 29) !important ;
 }
 
 .list-menu li ul:not(:nth-child(1)) li:nth-child(3) {
@@ -382,6 +383,9 @@ export default {
   margin-bottom: 5px;
 }
 
+svg{
+  margin-right: 5px;
+}
 
 
 
